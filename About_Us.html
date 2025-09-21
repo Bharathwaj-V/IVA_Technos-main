@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IVA Technos</title>
+   <link
+      rel="icon"
+      type="image/webp"
+      href="./images/header/ivalogo.webp"
+      
+    />
+
+
+    <link href="./output.css" rel="stylesheet" />
+
+     <!-- AOS CSS -->
+    <link href="./js/aos.css" rel="stylesheet" />
+
+    <script src="./js/scroll.js"></script>
+
+    <link href="./custom.css" rel="stylesheet" />
+
+    <script src="./js/tailwindbrowser.js"></script>
+
+   
+
+</head>
+<body class="bg-black">
+
+  <!-- Header -->
+  <header class="absolute fixed md:sticky top-0 left-0 w-full bg-black/30 backdrop-blur-md shadow-md z-50">
+    <div class="flex px-6 py-3 justify-between md:justify-around mx-auto md:px-4 md:py-4">         
+        <a href="#" class="flex flex-shrink-0 items-center">
+         <img src="./images/header/ivalogo.webp" alt="iVA Technos Logo" class="h-15 w-15 md:h-16 md:w-16 lg:h-18 lg:w-18">
+        </a>    
+
+        <nav class="hidden md:flex items-center md:text-sm lg:text-lg text-white xl:ms-20 xl:pl-10">
+          <a href="./index.html" class="whitespace-nowrap hover:text-[#43C400] md:px-4 lg:px-5 xl:px-6">      
+            Home
+          </a>
+          <a href="./About_Us.html" class="relative font-medium whitespace-nowrap w-fit after:content-[''] after:block after:w-6 after:h-[2px] after:bg-[#298000] after:mx-auto md:px-4 lg:px-5 xl:px-6">About Us</a>
+          <div class="md:px-4 lg:px-5 xl:px-6 flex items-center">
+            <a href="./Services.html" class="whitespace-nowrap hover:text-[#43C400]">
+              Services
+            </a>
+            <button onclick="toggleServices()" class="group ml-1 flex flex-shrink-0 items-center">
+               <!-- Default chevron -->
+              <img src="./images/header/chevron.webp" class="md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5 block group-hover:hidden">
+              <!-- Green chevron (hover state) -->
+              <img src="./images/header/chevron_green.webp" class="md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5 hidden group-hover:block">
+            </button>
+          </div>
+          <div class="md:px-4 lg:px-5 xl:px-6 flex items-center">
+            <a href="./Products.html" class="whitespace-nowrap hover:text-[#43C400]">
+              Products
+            </a>
+            <button onclick="toggleProducts()" class="group ml-1 flex flex-shrink-0 items-center">
+               <!-- Default chevron -->
+              <img src="./images/header/chevron.webp" class="md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5 block group-hover:hidden">
+              <!-- Green chevron (hover state) -->
+              <img src="./images/header/chevron_green.webp" class="md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5 hidden group-hover:block">
+            </button>
+          </div>
+          <a href="./Careers.html" class="whitespace-nowrap hover:text-[#43C400] md:px-4 lg:px-5 xl:px-6">Careers</a>
+          <a href="./Contact.html" class="whitespace-nowrap hover:text-[#43C400] md:px-4 lg:px-5 xl:px-6">Contact</a>
+      
+          <a href="call.html" class="md:mr-5 md:ms-2 lg:ms-4 xl:ms-20 xl:pl-10">
+            <button 
+              class="flex items-center justify-center gap-2 bg-[#298000] hover:bg-[#1F6300] text-white rounded-lg font-medium md:px-6 lg:px-7 xl:px-8 py-2 shadow-md">
+              <img src="./images/header/phone.webp" class="md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5">
+              Call   
+            </button>
+          </a>
+      </nav>
+
+      <!-- Mobile Hamburger -->
+      <button id="menu-btn" class="text-white md:hidden text-2xl focus:outline-none">
+        <img src="./images/mobile_view/hamburger.webp" class="h-15 w-15">
+      </button>
+
+    </div>
+
+     <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-black/30  backdrop-blur-lg text-white  border-t border-white/20 px-7 py-4 space-y-3  
+           shadow-lg z-40">
+
+      <a href="./index.html" class="block hover:text-[#43C400]">Home</a>
+      <a href="./About_Us.html"  class="relative inline-block font-medium whitespace-nowrap w-fit 
+          after:content-[''] after:absolute after:left-1/2 after:bottom-0 
+          after:-translate-x-1/2 after:w-6 after:h-[2px] after:bg-[#298000]">About Us</a>
+
+      <!-- Mobile Services dropdown -->
+      <div>
+          <div class="flex items-center justify-between w-full">
+            <a href="./Services.html" class="relative whitespace-nowrap w-fit">
+              Services
+            </a>
+            <button data-dropdown="mobile-services" class="flex items-center">
+              <!-- Default chevron -->
+            <img src="./images/header/chevron.webp" class="w-5 h-5">     
+            </button>
+          </div>
+        <div id="mobile-services" class="hidden ml-4 mt-2 space-y-2">
+          <a href="./Embedded_System_Application.html" class="pt-1 inline-flex items-center gap-3 block hover:text-[#43C400]">
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded-md bg-white shadow"><img src="./images/header/turn_right.webp" class="w-3 h-3"></span>
+            <span class="font-medium">ESA</span>
+          </a><br/>
+          <a href="./Web_Application.html" class="pt-1 inline-flex items-center gap-3 block hover:text-[#43C400]">
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded-md bg-white shadow"><img src="./images/header/turn_right.webp" class="w-3 h-3"></span>
+            <span class="font-medium">Web Application</span>
+          </a><br/>
+          <a href="./Data_Annotation.html" class="pt-1 inline-flex items-center gap-3 block hover:text-[#43C400]">
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded-md bg-white shadow"><img src="./images/header/turn_right.webp" class="w-3 h-3"></span>
+            <span class="font-medium">Data Annotation</span>
+          </a><br/>
+          <a href="./Industrial_Automation.html" class="pt-1 inline-flex items-center gap-3 block hover:text-[#43C400]">
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded-md bg-white shadow"><img src="./images/header/turn_right.webp" class="w-3 h-3"></span>
+            <span class="font-medium">Industrial Automation</span>
+          </a><br/>
+          <a href="./Ecommerce_Application.html" class="pt-1 inline-flex items-center gap-3 block hover:text-[#43C400]">
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded-md bg-white shadow"><img src="./images/header/turn_right.webp" class="w-3 h-3"></span>
+            <span class="font-medium">E-commerce Application</span>
+          </a><br/>
+          <a href="./Infotainment.html" class="pt-1 inline-flex items-center gap-3 block hover:text-[#43C400]">
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded-md bg-white shadow"><img src="./images/header/turn_right.webp" class="w-3 h-3"></span>
+            <span class="font-medium">Infotainment</span>
+          </a><br/>
+          <a href="./3D_Printing.html" class="pt-1 inline-flex items-center gap-3 block hover:text-[#43C400]">
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded-md bg-white shadow"><img src="./images/header/turn_right.webp" class="w-3 h-3"></span>
+            <span class="font-medium">3D Printing</span>
+          </a><br/>
+           <a href="./Mobile_Application.html" class="pt-1 inline-flex items-center gap-3 block hover:text-[#43C400]">
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded-md bg-white shadow"><img src="./images/header/turn_right.webp" class="w-3 h-3"></span>
+            <span class="font-medium">Mobile Application</span>
+          </a><br/>
+           <a href="./Digital_Cloud_Services.html" class="pt-1 inline-flex items-center gap-3 block hover:text-[#43C400]">
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded-md bg-white shadow"><img src="./images/header/turn_right.webp" class="w-3 h-3"></span>
+            <span class="font-medium">Digital-Cloud Services</span>
+          </a>
+        </div>
+      </div>
+
+       <!-- Mobile Products dropdown -->
+      <div>
+        <div class="flex items-center justify-between w-full">
+            <a href="./Products.html" class="relative whitespace-nowrap w-fit">
+               Products
+            </a>
+            <button data-dropdown="mobile-products" class="flex items-center">
+              <!-- Default chevron -->
+            <img src="./images/header/chevron.webp" class="w-5 h-5">     
+            </button>
+          </div>
+
+         <div id="mobile-products" class="hidden ml-4 mt-2 space-y-2">
+          <a href="./Compressor_Controller.html" class="pt-1 inline-flex items-center gap-3 block hover:text-[#43C400]">
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded-md bg-white shadow"><img src="./images/header/turn_right.webp" class="w-3 h-3"></span>
+            <span class="font-medium">Compressor Controller</span>
+          </a><br/>
+          <a href="./Diagnostic_Scan_Tool.html" class="pt-1 inline-flex items-center gap-3 block hover:text-[#43C400]">
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded-md bg-white shadow"><img src="./images/header/turn_right.webp" class="w-3 h-3"></span>
+            <span class="font-medium">H200 – Diagnostic Scan Tool</span>
+          </a><br/>
+          <a href="./ITV_EGR_Performance_Tester.html" class="pt-1 inline-flex items-center gap-3 block hover:text-[#43C400]">
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded-md bg-white shadow"><img src="./images/header/turn_right.webp" class="w-3 h-3"></span>
+            <span class="font-medium">ITV/EGR Performance Tester</span>
+          </a><br/>
+          <a href="./Vehicle_Speed_Simulator.html" class="pt-1 inline-flex items-center gap-3 block hover:text-[#43C400]">
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded-md bg-white shadow"><img src="./images/header/turn_right.webp" class="w-3 h-3"></span>
+            <span class="font-medium">Vehicle Speed Simulator</span>
+          </a><br/>
+          <a href="./Wireless_Temperature_Logger.html" class="pt-1 inline-flex items-center gap-3 block hover:text-[#43C400]">
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded-md bg-white shadow"><img src="./images/header/turn_right.webp" class="w-3 h-3"></span>
+            <span class="font-medium">Wireless Temperature Logger</span>
+          </a><br/>
+          <a href="./My_Park_Parking_Solution.html" class="pt-1 inline-flex items-center gap-3 block hover:text-[#43C400]">
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded-md bg-white shadow"><img src="./images/header/turn_right.webp" class="w-3 h-3"></span>
+            <span class="font-medium">My Park – Parking Solution</span>
+          </a><br/>
+          <a href="./Lightning_Counter_Tester.html" class="pt-1 inline-flex items-center gap-3 block hover:text-[#43C400]">
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded-md bg-white shadow"><img src="./images/header/turn_right.webp" class="w-3 h-3"></span>
+            <span class="font-medium">Lightning Counter & Tester</span>
+          </a><br/>
+          <a href="./Internet_Radio.html" class="pt-1 inline-flex items-center gap-3 block hover:text-[#43C400]">
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded-md bg-white shadow"><img src="./images/header/turn_right.webp" class="w-3 h-3"></span>
+            <span class="font-medium">Internet Radio</span>
+          </a><br/>
+          <a href="./T4_Test_Rig.html" class="pt-1 inline-flex items-center gap-3 block hover:text-[#43C400]">
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded-md bg-white shadow"><img src="./images/header/turn_right.webp" class="w-3 h-3"></span>
+            <span class="font-medium">T4 – Test Rig</span>
+          </a><br/>
+           <a href="./H200_Wireless_OBD_Dongle.html" class="pt-1 inline-flex items-center gap-3 block hover:text-[#43C400]">
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded-md bg-white shadow"><img src="./images/header/turn_right.webp" class="w-3 h-3"></span>
+            <span class="font-medium">H200 – Wireless OBD Dongle</span>
+          </a><br/>
+           <a href="./HC_Dozer_Test_Rig.html" class="pt-1 inline-flex items-center gap-3 block hover:text-[#43C400]">
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded-md bg-white shadow"><img src="./images/header/turn_right.webp" class="w-3 h-3"></span>
+            <span class="font-medium">HC Dozer Test Rig</span>
+          </a><br/>
+          <a href="./Cable_Test_Rig.html" class="pt-1 inline-flex items-center gap-3 block hover:text-[#43C400]">
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded-md bg-white shadow"><img src="./images/header/turn_right.webp" class="w-3 h-3"></span>
+            <span class="font-medium">Cable Test Rig</span>
+          </a><br/>
+          <a href="./XCP_CAN.html" class="pt-1 inline-flex items-center gap-3 block hover:text-[#43C400]">
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded-md bg-white shadow"><img src="./images/header/turn_right.webp" class="w-3 h-3"></span>
+            <span class="font-medium">XCP CAN</span>
+          </a>
+        </div>
+      </div>
+
+      <a href="./Careers.html" class="block hover:text-[#43C400]">Careers</a>
+      <a href="./Contact.html" class="block hover:text-[#43C400]">Contact</a><br/>
+
+      <a href="#">
+        <button class="-mt-2 md:mt-0 w-full px-4 py-2 text-white flex items-center justify-center gap-2 bg-[#298000] hover:bg-[#1F6300] text-white rounded-md font-medium shadow-md">
+         <img src="./images/header/phone.webp" class="w-4 h-4"> Call
+        </button>
+      </a>
+
+    </div>
+    
+  </header>
+
+
+  
+  <section id="services-section" 
+    class="backdrop hidden hidden fixed top-22 left-0 w-full bg-black/50 
+           border-t border-white/20 shadow-lg z-40">
+          
+    <div class="max-w-full flex items-start mx-auto md:gap-4 lg:gap-6 xl:gap-6 px-0 py-10">
+       <!-- Left: title -->
+      <div class="grid grid-cols-1 xl:min-w-[100px] md:pl-[28px] lg:pl-[50px] xl:pl-[75px]">
+          <h2 class="md:text-xl lg:text-2xl xl:text-3xl font-bold leading-tight text-white">OUR<br>SERVICES</h2>
+      </div>
+      <div class="grid grid-cols-1 xl:min-w-[200px] md:pl-3 lg:pl-3 xl:pl-6">
+
+      </div>
+
+       <!-- Right: services grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 md:gap-x-4 lg:gap-x-4 xl:gap-x-8 md:gap-y-5 lg:gap-y-10 xl:gap-y-10 flex-1 text-white">
+        
+        <a href="./Embedded_System_Application.html" class="inline-flex items-center gap-3 hover:text-[#43C400]">
+          <span class="inline-flex items-center justify-center md:w-7 md:h-7 lg:w-8 lg:h-8 xl:w-9 xl:h-9 rounded-md bg-white shadow"><img src="./images/header/turn_right.webp" class="md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5"></span>
+          <span class="md:text-base lg:text-lg xl:text-xl font-medium">ESA</span>
+        </a>
+        <a href="./Web_Application.html" class="inline-flex items-center gap-3 hover:text-[#43C400]">
+          <span class="inline-flex items-center justify-center md:w-7 md:h-7 lg:w-8 lg:h-8 xl:w-9 xl:h-9 rounded-md bg-white text-green-700 shadow"><img src="./images/header/turn_right.webp" class="md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5"></span>
+          <span class="md:text-base lg:text-lg xl:text-xl font-medium">Web Application</span>
+        </a>
+        <a href="./Data_Annotation.html" class="inline-flex items-center gap-3 hover:text-[#43C400]">
+          <span class="inline-flex items-center justify-center md:w-7 md:h-7 lg:w-8 lg:h-8 xl:w-9 xl:h-9 rounded-md bg-white text-green-700 shadow"><img src="./images/header/turn_right.webp" class="md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5"></span>
+          <span class="md:text-base lg:text-lg xl:text-xl font-medium">Data Annotation</span>
+        </a>
+        <a href="./Industrial_Automation.html" class="inline-flex items-center gap-3 hover:text-[#43C400]">
+          <span class="inline-flex items-center justify-center md:w-7 md:h-7 lg:w-8 lg:h-8 xl:w-9 xl:h-9 rounded-md bg-white text-green-700 shadow"><img src="./images/header/turn_right.webp" class="md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5"></span>
+          <span class="md:text-base lg:text-lg xl:text-xl font-medium">Industrial Automation</span>
+        </a>
+        <a href="./Ecommerce_Application.html" class="inline-flex items-center gap-3 hover:text-[#43C400]">
+          <span class="inline-flex items-center justify-center md:w-7 md:h-7 lg:w-8 lg:h-8 xl:w-9 xl:h-9 rounded-md bg-white text-green-700 shadow"><img src="./images/header/turn_right.webp" class="md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5"></span>
+          <span class="md:text-base lg:text-lg xl:text-xl font-medium">E-commerce Application</span>
+        </a>
+        <a href="./Infotainment.html" class="inline-flex items-center gap-3 hover:text-[#43C400]">
+          <span class="inline-flex items-center justify-center md:w-7 md:h-7 lg:w-8 lg:h-8 xl:w-9 xl:h-9 rounded-md bg-white text-green-700 shadow"><img src="./images/header/turn_right.webp" class="md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5"></span>
+          <span class="md:text-base lg:text-lg xl:text-xl font-medium">Infotainment</span>
+        </a>
+         <a href="./3D_Printing.html" class="inline-flex items-center gap-3 hover:text-[#43C400]">
+          <span class="inline-flex items-center justify-center md:w-7 md:h-7 lg:w-8 lg:h-8 xl:w-9 xl:h-9 rounded-md bg-white text-green-700 shadow"><img src="./images/header/turn_right.webp" class="md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5"></span>
+          <span class="md:text-base lg:text-lg xl:text-xl font-medium">3D Printing</span>
+        </a>
+        <a href="./Mobile_Application.html" class="inline-flex items-center gap-3 hover:text-[#43C400]">
+          <span class="inline-flex items-center justify-center md:w-7 md:h-7 lg:w-8 lg:h-8 xl:w-9 xl:h-9 rounded-md bg-white text-green-700 shadow"><img src="./images/header/turn_right.webp" class="md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5"></span>
+          <span class="md:text-base lg:text-lg xl:text-xl font-medium">Mobile Application</span>
+        </a>
+        <a href="./Digital_Cloud_Services.html" class="inline-flex items-center gap-3 hover:text-[#43C400]">
+          <span class="inline-flex items-center justify-center md:w-7 md:h-7 lg:w-8 lg:h-8 xl:w-9 xl:h-9 rounded-md bg-white text-green-700 shadow"><img src="./images/header/turn_right.webp" class="md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5"></span>
+          <span class="md:text-base lg:text-lg xl:text-xl font-medium">Digital Cloud-Services</span>
+        </a>
+      </div>
+      <div class="grid grid-cols-1 xl:min-w-[200px] md:pl-3 lg:pl-3 xl:pl-6">
+        
+      </div>
+    </div>
+  </section>
+
+  <section id="products-section" 
+    class="backdrop hidden hidden fixed top-22 left-0 w-full bg-black/50  
+           border-t border-white/20 shadow-lg z-40">
+         
+    <div class="max-w-full flex items-start mx-auto md:gap-4 lg:gap-6 xl:gap-6 px-0 py-10">
+       <!-- Left: title -->       
+      <div class="grid grid-cols-1 xl:min-w-[100px] md:pl-[28px] lg:pl-[50px] xl:pl-[75px]">
+          <h2 class="md:text-xl lg:text-2xl xl:text-3xl font-bold leading-tight text-white">OUR<br>PRODUCTS</h2>
+      </div>
+      <div class="grid grid-cols-1 xl:min-w-[200px] md:pl-3 lg:pl-3 xl:pl-6">
+
+      </div>
+
+       <!-- Right: products grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 md:gap-x-4 lg:gap-x-4 xl:gap-x-8 md:gap-y-5 lg:gap-y-10 xl:gap-y-10 flex-1 text-white">
+        
+        <a href="./Compressor_Controller.html" class="inline-flex items-center gap-3 hover:text-[#43C400]">
+          <span class="inline-flex items-center justify-center md:w-7 md:h-7 lg:w-8 lg:h-8 xl:w-9 xl:h-9 rounded-md bg-white shadow"><img src="./images/header/turn_right.webp" class="md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5"></span>
+          <span class="md:text-base lg:text-lg xl:text-xl font-medium">Compressor Controller</span>
+        </a>
+        <a href="./Diagnostic_Scan_Tool.html" class="inline-flex items-center gap-3 hover:text-[#43C400]">
+          <span class="inline-flex items-center justify-center md:w-7 md:h-7 lg:w-8 lg:h-8 xl:w-9 xl:h-9 rounded-md bg-white text-green-700 shadow"><img src="./images/header/turn_right.webp" class="md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5"></span>
+          <span class="md:text-base lg:text-lg xl:text-xl font-medium">H200 – Diagnostic Scan Tool</span>
+        </a>
+        <a href="./ITV_EGR_Performance_Tester.html" class="inline-flex items-center gap-3 hover:text-[#43C400]">
+          <span class="inline-flex items-center justify-center md:w-7 md:h-7 lg:w-8 lg:h-8 xl:w-9 xl:h-9 rounded-md bg-white text-green-700 shadow"><img src="./images/header/turn_right.webp" class="md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5"></span>
+          <span class="md:text-base lg:text-lg xl:text-xl font-medium">ITV/EGR Performance Tester</span>
+        </a>
+        <a href="./Vehicle_Speed_Simulator.html" class="inline-flex items-center gap-3 hover:text-[#43C400]">
+          <span class="inline-flex items-center justify-center md:w-7 md:h-7 lg:w-8 lg:h-8 xl:w-9 xl:h-9 rounded-md bg-white text-green-700 shadow"><img src="./images/header/turn_right.webp" class="md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5"></span>
+          <span class="md:text-base lg:text-lg xl:text-xl font-medium">Vehicle Speed Simulator</span>
+        </a>
+        <a href="./Wireless_Temperature_Logger.html" class="inline-flex items-center gap-3 hover:text-[#43C400]">
+          <span class="inline-flex items-center justify-center md:w-7 md:h-7 lg:w-8 lg:h-8 xl:w-9 xl:h-9 rounded-md bg-white text-green-700 shadow"><img src="./images/header/turn_right.webp" class="md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5"></span>
+          <span class="md:text-base lg:text-lg xl:text-xl font-medium">Wireless Temperature Logger</span>
+        </a>
+        <a href="./My_Park_Parking_Solution.html" class="inline-flex items-center gap-3 hover:text-[#43C400]">
+          <span class="inline-flex items-center justify-center md:w-7 md:h-7 lg:w-8 lg:h-8 xl:w-9 xl:h-9 rounded-md bg-white text-green-700 shadow"><img src="./images/header/turn_right.webp" class="md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5"></span>
+          <span class="md:text-base lg:text-lg xl:text-xl font-medium">My Park – Parking Solution</span>
+        </a>
+         <a href="./Lightning_Counter_Tester.html" class="inline-flex items-center gap-3 hover:text-[#43C400]">
+          <span class="inline-flex items-center justify-center md:w-7 md:h-7 lg:w-8 lg:h-8 xl:w-9 xl:h-9 rounded-md bg-white text-green-700 shadow"><img src="./images/header/turn_right.webp" class="md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5"></span>
+          <span class="md:text-base lg:text-lg xl:text-xl font-medium">Lightning Counter & Tester</span>
+        </a>
+        <a href="./Internet_Radio.html" class="inline-flex items-center gap-3 hover:text-[#43C400]">
+          <span class="inline-flex items-center justify-center md:w-7 md:h-7 lg:w-8 lg:h-8 xl:w-9 xl:h-9 rounded-md bg-white text-green-700 shadow"><img src="./images/header/turn_right.webp" class="md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5"></span>
+          <span class="md:text-base lg:text-lg xl:text-xl font-medium">Internet Radio</span>
+        </a>
+        <a href="./T4_Test_Rig.html" class="inline-flex items-center gap-3 hover:text-[#43C400]">
+          <span class="inline-flex items-center justify-center md:w-7 md:h-7 lg:w-8 lg:h-8 xl:w-9 xl:h-9 rounded-md bg-white text-green-700 shadow"><img src="./images/header/turn_right.webp" class="md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5"></span>
+          <span class="md:text-base lg:text-lg xl:text-xl font-medium">T4 – Test Rig</span>
+        </a>
+        <a href="./H200_Wireless_OBD_Dongle.html" class="inline-flex items-center gap-3 hover:text-[#43C400]">
+          <span class="inline-flex items-center justify-center md:w-7 md:h-7 lg:w-8 lg:h-8 xl:w-9 xl:h-9 rounded-md bg-white text-green-700 shadow"><img src="./images/header/turn_right.webp" class="md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5"></span>
+          <span class="md:text-base lg:text-lg xl:text-xl font-medium">H200 – Wireless OBD Dongle</span>
+        </a>
+         <a href="./HC_Dozer_Test_Rig.html" class="inline-flex items-center gap-3 hover:text-[#43C400]">
+          <span class="inline-flex items-center justify-center md:w-7 md:h-7 lg:w-8 lg:h-8 xl:w-9 xl:h-9 rounded-md bg-white text-green-700 shadow"><img src="./images/header/turn_right.webp" class="md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5"></span>
+          <span class="md:text-base lg:text-lg xl:text-xl font-medium">HC Dozer Test Rig</span>
+        </a>
+         <a href="./Cable_Test_Rig.html" class="inline-flex items-center gap-3 hover:text-[#43C400]">
+          <span class="inline-flex items-center justify-center md:w-7 md:h-7 lg:w-8 lg:h-8 xl:w-9 xl:h-9 rounded-md bg-white text-green-700 shadow"><img src="./images/header/turn_right.webp" class="md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5"></span>
+          <span class="md:text-base lg:text-lg xl:text-xl font-medium">Cable Test Rig</span>
+        </a>
+         <a href="./XCP_CAN.html" class="inline-flex items-center gap-3 hover:text-[#43C400]">
+          <span class="inline-flex items-center justify-center md:w-7 md:h-7 lg:w-8 lg:h-8 xl:w-9 xl:h-9 rounded-md bg-white text-green-700 shadow"><img src="./images/header/turn_right.webp" class="md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5"></span>
+          <span class="md:text-base lg:text-lg xl:text-xl font-medium">XCP CAN</span>
+        </a>
+      </div>
+      <div class="grid grid-cols-1 xl:min-w-[200px] md:pl-3 lg:pl-3 xl:pl-6">
+        
+      </div>
+    </div>
+  </section>
+
+<style>
+  .backdrop {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+</style>
+
+
+<script>
+   
+    function toggleServices() {
+      const section = document.getElementById("services-section");
+      section.classList.toggle("hidden");
+    }
+  </script>  
+
+  <script>
+   
+    function toggleProducts() {
+      const section = document.getElementById("products-section");
+      section.classList.toggle("hidden");
+    }
+  </script>  
+
+<script>
+  // Mobile menu toggle
+  const menuBtn = document.getElementById("menu-btn");
+  const mobileMenu = document.getElementById("mobile-menu");
+  const desktopServices = document.getElementById("services-section");
+  const desktopProducts = document.getElementById("products-section");
+
+  // Always hide desktop dropdowns when mobile menu is opened
+  menuBtn.addEventListener("click", () => {
+    mobileMenu.classList.toggle("hidden");
+    desktopServices.classList.add("hidden");
+    desktopProducts.classList.add("hidden");
+  });
+
+  // Dropdown toggle (for Services, Products etc.)
+  const dropdownBtns = document.querySelectorAll("[data-dropdown]");
+
+  dropdownBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const dropdownId = btn.getAttribute("data-dropdown");
+      const dropdown = document.getElementById(dropdownId);
+      dropdown.classList.toggle("hidden");
+
+      // If mobile Services or Products dropdown is open → hide desktop ones
+      if ((dropdownId === "mobile-services" || dropdownId === "mobile-products") 
+          && !dropdown.classList.contains("hidden")) {
+        desktopServices.classList.add("hidden");
+        desktopProducts.classList.add("hidden");
+      }
+    });
+  });
+
+  // Extra safety: hide desktop dropdowns on window resize to mobile
+  window.addEventListener("resize", () => {
+    if (window.innerWidth < 768) {
+      desktopServices.classList.add("hidden");
+      desktopProducts.classList.add("hidden");
+    }
+  });
+</script>
+
+
+
+<section class="px-8 py-6 md:px-10 md:py-8 lg:px-14 lg:py-16 xl:px-25 xl:py-16 mt-[70px] md:mt-0">
+    <div class="mx-auto grid md:grid-cols-2 gap-6 md:gap-12">
+        <!-- LEFT SECTION -->
+        <div class="lg:mx-[-20px] mx-auto md:w-80 lg:w-120 fade-in-up relative items-start justify-start text-start">
+            <img src="./images/aboutus/diamondstar.webp" alt="diamondstar" class="w-6 md:w-10 lg:w-20 h-auto">
+            <h2 class="text-xl md:text-2xl lg:text-4xl font-bold text-white leading-snug mt-4">
+                WE CREATE EMOTIONAL,<br>
+                MEANINGFUL & INNOVATIVE<br>
+                DIGITAL EXPERIENCES
+            <span class="absolute mt-8 ml-4"><img src="./images/aboutus/diamondstar.webp" alt="diamondstar" class="w-4 md:w-7 lg:w-15 h-auto"></span>
+            <span class="absolute mt-6 ml-7 md:mt-4 md:ml-9 lg:mt-4 lg:ml-14 xl:mt-2 xl:ml-14"><img src="./images/aboutus/diamondstar.webp" alt="diamondstar" class="w-3 md:w-5 lg:w-8 xl:w-10 h-auto"></span>
+          </h2>
+            
+            
+            <p class="mt-10 md:mt-15 text-gray-400 text-base md:text-lg lg:text-xl text-justify">
+                Iva Technos was formed in 2016 by group of experts with Passion 
+                for technology & proven experience in Automotive domain.
+            </p>
+        </div>
+
+         <!-- RIGHT SECTION -->
+    <div class="fade-in-up flex justify-center md:justify-end">
+      <div class="grid grid-cols-3 grid-rows-3 gap-4 w-65 h-65 md:w-100 md:h-100 lg:w-110 lg:h-110">
+        <!-- Row 1 -->
+        <div class="grid-img rounded-tl-2xl bg-cover bg-center border-2 border-black" style="background-position:0% 0%;"></div>
+        <div class="flex items-center justify-center">
+          <span><img src="./images//aboutus/star.webp" class="w-[105px] md:w-[130px] lg:w-[190px] xl:w-[190px] h-auto"></span>
+        </div>
+        <div class="grid-img rounded-bl-2xl bg-cover bg-center border-2 border-black" style="background-position:100% 0%;"></div>
+
+        <!-- Row 2 -->
+        <div class="grid-img rounded-bl-2xl bg-cover bg-center border-2 border-black" style="background-position:0% 50%;"></div>
+        <div class="grid-img rounded-tr-2xl bg-cover bg-center border-2 border-black"  style="background-position:50% 50%;">
+          
+        </div>
+        <div class="flex items-center justify-center">
+            <div class="w-18 h-18 md:w-24 md:h-24 lg:w-34 lg:h-34 xl:w-34 xl:h-34 rounded-full bg-[#3D3D3D] flex items-center justify-center">
+            <div class="w-12 h-12 md:w-12 md:h-12 lg:w-22 lg:h-22 xl:w-22 xl:h-22 rounded-full bg-[#1f6300]"></div>
+          </div>
+        </div>
+
+        <!-- Row 3 -->
+        <div class="grid-img rounded-tl-2xl bg-cover bg-center border-2 border-black" style="background-position:0% 100%;"></div>
+        <div class="grid-img bg-cover bg-center border-2 border-black" style="background-position:50% 100%;"></div>
+        <div class="grid-img rounded-2xl bg-cover bg-center border-2 border-black" style="background-position:100% 100%;"></div>
+      </div>
+    </div>
+
+    </div>
+
+     <div class="mt-8 md:mt-10 lg:mt-12 md:w-140 lg:w-200 mx-auto lg:mx-auto bg-white rounded-2xl p-2 flex items-center justify-around border-2 border-black">
+                <div class="text-center">
+                    <p class="text-base md:text-lg lg:text-xl font-extrabold text-[#298000]">45+</p>
+                    <p class="text-base md:text-lg lg:text-xl text-black font-semibold">Engineers</p>
+                </div>
+                <div class="h-12 w-0.5 bg-black"></div>
+                <div class="text-center">
+                    <p class="text-base md:text-lg lg:text-xl font-extrabold text-[#298000]">03+</p>
+                    <p class="text-base md:text-lg lg:text-xl text-black font-semibold">Locations</p>
+                </div>
+            </div>
+</section>
+
+<style>
+    /* Common background image for all tiles */
+    .grid-img {
+      background-image: url("./images/aboutus/ivatechnos.webp"); 
+      background-size: 300% 300%; 
+      background-repeat: no-repeat;
+    }
+</style>
+
+<section class="px-8 py-6 md:px-10 md:py-8 lg:px-8 lg:py-10 xl:px-20 xl:py-10">
+      <div class="mx-auto grid md:grid-cols-2 md:grid-rows-2 gap-6 md:gap-8 lg:gap-10">
+    
+    <!-- MISSION -->
+    <div class="bg-[#1A1A1A] rounded-2xl p-6 md:p-8 shadow-lg md:mb-[-10px]">
+      <h3 class="inline-block bg-[#6B6B6B] text-white px-8 py-2 rounded-full text-base md:text-lg lg:text-xl font-semibold mb-4">
+        OUR MISSION
+      </h3>
+      <ul class="space-y-3 text-white">
+        <li class="flex items-start gap-2 text-sm md:text-base lg:text-lg"><img src="./images/aboutus/check_mark.webp" alt="check_mark" class="w-5 h-auto mt-2">Enable our customers to maximize their value in<br/>Products & Services we offer.</li>
+        <li class="flex items-start gap-2 text-sm md:text-base lg:text-lg"><img src="./images/aboutus/check_mark.webp" alt="check_mark" class="w-5 h-auto mt-2">Becoming a strategic partner with our customers.</li>
+        <li class="flex items-start gap-2 text-sm md:text-base lg:text-lg"><img src="./images/aboutus/check_mark.webp" alt="check_mark" class="w-5 h-auto mt-2">Be the Business transformation enabler for our customer with a solution-centric mindset.</li>
+      </ul>
+    </div>
+
+    <!-- VALUES -->
+    <div class="bg-[#6B6B6B] rounded-2xl p-6 md:p-8 shadow-lg bg-cover bg-center md:row-span-2" 
+         style="background-image:url('./images/aboutus/values.webp');">
+        <div class="md:mt-28 md:pt-14 lg:mt-28 lg:pt-28">
+      <h3 class="inline-block bg-white text-green-700 px-8 py-2 rounded-full text-base md:text-lg lg:text-xl font-bold mb-4">
+        OUR VALUES
+      </h3>
+      <ul class="space-y-3 text-white">
+        <li class="flex items-start gap-2 text-sm md:text-base lg:text-lg"><img src="./images/aboutus/check_mark.webp" alt="check_mark" class="w-5 h-auto mt-2"><p><span class="font-bold">Customer experience:</span> We put customer first in our action to bring positive experience.</p></li>
+        <li class="flex items-start gap-2 text-sm md:text-base lg:text-lg"><img src="./images/aboutus/check_mark.webp" alt="check_mark" class="w-5 h-auto mt-2"><p><span class="font-bold">Fairness:</span> We exhibit fairness in our relationship – Treat everyone equally.</p></li>
+        <li class="flex items-start gap-2 text-sm md:text-base lg:text-lg"><img src="./images/aboutus/check_mark.webp" alt="check_mark" class="w-5 h-auto mt-2"><p><span class="font-bold">Transparency:</span> We communicate with honesty and respect.</p></li>
+        <li class="flex items-start gap-2 text-sm md:text-base lg:text-lg"><img src="./images/aboutus/check_mark.webp" alt="check_mark" class="w-5 h-auto mt-2"><p><span class="font-bold">Integrity:</span> Our action demonstrates the highest standards of integrity.</p></li>
+        <li class="flex items-start gap-2 text-sm md:text-base lg:text-lg"><img src="./images/aboutus/check_mark.webp" alt="check_mark" class="w-5 h-auto mt-2"><p><span class="font-bold">Trust:</span> Our company believes in each other and builds trust by leading from the front.</p></li>
+      </ul>
+      </div>
+    </div>
+
+    <!-- VISION -->
+    <div class="bg-[#1A1A1A] rounded-2xl p-6 md:pl-8 md:pt-20 shadow-lg">
+      <h3 class="inline-block bg-[#6B6B6B] text-white px-8 py-2 rounded-full text-base md:text-lg lg:text-xl font-semibold mb-4">
+        OUR VISION
+      </h3>
+      <ul class="space-y-3 text-white">
+        <li class="flex items-start gap-2 text-sm md:text-base lg:text-lg"><img src="./images/aboutus/check_mark.webp" alt="check_mark" class="w-5 h-auto mt-2">To be the company offering Technological advancements and creating a positive impact in people's life.</li>
+      </ul>
+    </div>
+
+  </div>
+
+</section>
+
+  <!-- Section Wrapper -->
+  <section class="mx-auto px-8 py-6 md:px-10 md:py-4 lg:px-8 lg:py-4 xl:px-20 xl:py-4 text-white">
+
+    <!-- Top Row -->
+    <div class="grid md:grid-cols-2 gap-5 md:gap-10 items-center">
+         <!-- Left Image -->
+      <div class="rounded-2xl overflow-hidden">
+        <img src="./images/aboutus/goal_man.webp" alt="Goal Achievement" class="w-full h-full object-cover">
+      </div>
+
+        <!-- Right Text -->
+      <div class="flex items-center">
+        <h2 class="lg:w-120 text-xl md:text-2xl lg:text-4xl font-bold leading-snug">
+          WE’RE HERE TO HELP YOU ACHIEVE YOUR GOALS
+        </h2>
+      </div>
+    </div>
+
+     <!-- Bottom Row (Cards) -->
+    <div class="grid md:grid-cols-3 gap-3 mt-5 md:mt-5 lg:mt-6">
+         <!-- Card 1 -->
+      <div class="bg-[#1A1A1A] rounded-xl p-6 text-center md:text-start shadow-lg">
+        <div class="flex justify-center mb-4">
+          <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center">
+            <span><img src="./images/aboutus/setting.webp" alt="commitment" class="w-8 h-auto"></span>
+          </div>
+        </div>
+        <h3 class="text-base md:text-lg lg:text-xl font-bold mb-2">COMMITMENT</h3>
+        <p class="text-sm md:text-base lg:text-lg">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </p>
+      </div>
+
+       <!-- Card 2 -->
+      <div class="bg-[#1A1A1A] rounded-xl p-6 text-center md:text-start shadow-lg">
+        <div class="flex justify-center mb-4">
+          <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center">
+            <span class="text-green-600 text-2xl"><img src="./images/aboutus/justice_scale.webp" alt="justice_scale" class="w-8 h-auto"></span>
+          </div>
+        </div>
+        <h3 class="text-base md:text-lg lg:text-xl font-bold mb-2">HONESTY</h3>
+        <p class="text-sm md:text-base lg:text-lg">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </p>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="bg-[#1A1A1A] rounded-xl p-6 text-center md:text-start shadow-lg">
+        <div class="flex justify-center mb-4">
+          <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center">
+            <span class="text-green-600 text-2xl"><img src="./images/aboutus/growth_graph.webp" alt="growth_graph" class="w-8 h-auto"></span>
+          </div>
+        </div>
+        <h3 class="text-base md:text-lg lg:text-xl font-bold mb-2">GROWTH</h3>
+        <p class="text-sm md:text-base lg:text-lg">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </p>
+      </div>
+    </div>
+  </section>
+
+   <!-- Team Section -->
+  <section class="mx-auto px-8 py-6 md:px-10 md:py-8 lg:px-10 lg:py-16 xl:px-20 xl:py-16 text-white">
+    <h2 class="text-xl md:text-2xl lg:text-3xl font-bold mb-10">MEET OUR PROFESSIONAL TEAM</h2>
+
+    <!-- Team Grid -->
+    <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-3">
+
+      <!-- Team Card -->
+      <div class="bg-[#363636] relative h-70 md:h-70 lg:h-80 rounded-xl overflow-hidden group">
+        <!-- Image -->
+        <img src="./images/aboutus/satheesh.webp" 
+             alt="SatheeshKumar D" 
+             class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+
+        <!-- Floating Name Card -->
+        <div class="absolute bottom-4 left-1/2 -translate-x-1/2 
+                    w-[90%] bg-[#1A1A1A] text-white rounded-lg shadow-lg p-3 text-start">
+          <h3 class="font-semibold text-base md:text-sm lg:text-lg">SatheeshKumar D</h3>
+          <div class="flex justify-start gap-4 mt-2 text-white">
+            <a href="#"><img src="./images/aboutus/linkedin.webp" alt="linkedin" class="w-5 md:w-4 lg:w-5 h-auto"></a>
+            <a href="#"><img src="./images/aboutus/twitter.webp" alt="twitter" class="w-5 md:w-4 lg:w-5 h-auto"></a>
+            <a href="#"><img src="./images/aboutus/facebook.webp" alt="facebook" class="w-7 md:w-6 lg:w-7 -mt-1 h-auto"></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="bg-[#363636] relative h-70 md:h-70 lg:h-80 rounded-xl overflow-hidden group">
+        <img src="https://via.placeholder.com/300x400" alt="Vijay Narayanan" 
+             class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+        <div class="absolute bottom-4 left-1/2 -translate-x-1/2 
+                    w-[90%] bg-[#1A1A1A] text-white rounded-lg shadow-lg p-3 text-start">
+          <h3 class="font-semibold text-base md:text-sm lg:text-lg">Vijay Narayanan</h3>
+          <div class="flex justify-start gap-4 mt-2 text-white">
+            <a href="#"><img src="./images/aboutus/linkedin.webp" alt="linkedin" class="w-5 md:w-4 lg:w-5 h-auto"></a>
+            <a href="#"><img src="./images/aboutus/twitter.webp" alt="twitter" class="w-5 md:w-4 lg:w-5 h-auto"></a>
+            <a href="#"><img src="./images/aboutus/facebook.webp" alt="facebook" class="w-7 md:w-6 lg:w-7 -mt-1 h-auto"></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="bg-[#363636] relative h-70 md:h-70 lg:h-80 rounded-xl overflow-hidden group">
+        <img src="https://via.placeholder.com/300x400" alt="Sathyanarayana D" 
+             class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+        <div class="absolute bottom-4 left-1/2 -translate-x-1/2 
+                    w-[90%] bg-[#1A1A1A] text-white rounded-lg shadow-lg p-3 text-start">
+          <h3 class="font-semibold text-base md:text-sm lg:text-lg">Sathyanarayana D</h3>
+          <div class="flex justify-start gap-4 mt-2 text-white">
+            <a href="#"><img src="./images/aboutus/linkedin.webp" alt="linkedin" class="w-5 md:w-4 lg:w-5 h-auto"></a>
+            <a href="#"><img src="./images/aboutus/twitter.webp" alt="twitter" class="w-5 md:w-4 lg:w-5 h-auto"></a>
+            <a href="#"><img src="./images/aboutus/facebook.webp" alt="facebook" class="w-7 md:w-6 lg:w-7 -mt-1 h-auto"></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="bg-[#363636] relative h-70 md:h-70 lg:h-80 rounded-xl overflow-hidden group">
+        <img src="https://via.placeholder.com/300x400" alt="Gopinath Ravanan" 
+             class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+        <div class="absolute bottom-4 left-1/2 -translate-x-1/2 
+                    w-[90%] bg-[#1A1A1A] text-white rounded-lg shadow-lg p-3 text-start">
+          <h3 class="font-semibold text-base md:text-sm lg:text-lg">Gopinath Ravanan</h3>
+          <div class="flex justify-start gap-4 mt-2 text-white">
+            <a href="#"><img src="./images/aboutus/linkedin.webp" alt="linkedin" class="w-5 md:w-4 lg:w-5 h-auto"></a>
+            <a href="#"><img src="./images/aboutus/twitter.webp" alt="twitter" class="w-5 md:w-4 lg:w-5 h-auto"></a>
+            <a href="#"><img src="./images/aboutus/facebook.webp" alt="facebook" class="w-7 md:w-6 lg:w-7 -mt-1 h-auto"></a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Our Clients Section -->
+  <section class="bg-[#1A1A1A] mx-auto py-8 md:mt-8 lg:py-16 text-white">
+    <div class="mx-auto text-center">
+      <!-- Title -->
+       <h2 class="text-xl md:text-2xl lg:text-3xl font-bold mb-4">OUR CLIENTS</h2>
+      <p class="text-base md:text-lg lg:text-xl max-w-2xl mx-auto mb-5 md:mb-5 lg:mb-10">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
+        tempor incididunt ut labore et dolore magna aliqua.
+      </p>
+
+      <!-- Logo Carousel -->
+      <div class="overflow-hidden relative pt-2 md:pt-4 lg:pt-8">
+        <div class="scroll-track flex gap-20 w-max">
+          
+           <!-- Group 1 -->
+          <img
+            class="object-cover h-7 sm:h-8 md:h-10 lg:h-12" alt="Lucas TVS"
+            src="./images/aboutus/lucastvs.webp"
+          />
+          <img
+            class="object-cover h-6 sm:h-7 md:h-9 lg:h-11" alt="Ashok Leyland" 
+            src="./images/aboutus/ashok_leyland.webp"
+          />
+          <img
+            class="object-cover h-6 sm:h-7 md:h-9 lg:h-11" alt="Pricol"
+            src="./images/aboutus/pricol.webp"
+          />
+          <img
+            class="object-cover h-6 sm:h-7 md:h-9 lg:h-11" alt="Nissan Motor"
+            src="./images/aboutus/nissan_motor.webp"
+          />
+          <img
+            class="object-cover h-6 sm:h-7 md:h-9 lg:h-11" alt="Roots"
+            src="./images/aboutus/roots.webp"
+          />
+
+          <!-- Group 2 -->
+           <img
+            class="object-cover h-7 sm:h-8 md:h-10 lg:h-12" alt="Lucas TVS"
+            src="./images/aboutus/lucastvs.webp"
+          />
+          <img
+            class="object-cover h-6 sm:h-7 md:h-9 lg:h-11" alt="Ashok Leyland" 
+            src="./images/aboutus/ashok_leyland.webp"
+          />
+          <img
+            class="object-cover h-6 sm:h-7 md:h-9 lg:h-11" alt="Pricol"
+            src="./images/aboutus/pricol.webp"
+          />
+          <img
+            class="object-cover h-6 sm:h-7 md:h-9 lg:h-11" alt="Nissan Motor"
+            src="./images/aboutus/nissan_motor.webp"
+          />
+          <img
+            class="object-cover h-6 sm:h-7 md:h-9 lg:h-11" alt="Roots"
+            src="./images/aboutus/roots.webp"
+          />
+
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+   <!-- Animation Style -->
+    <style>
+      @keyframes scrollLogo {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+
+      .scroll-track {
+        animation: scrollLogo 10s linear infinite;
+      }
+    </style>
+
+  <!-- Gallery Section -->
+  <section class="mx-auto px-8 py-6 md:px-10 md:py-8 lg:px-10 lg:py-16 xl:px-20 xl:py-16 pb-8 md:pb-10 text-white">
+    
+    <!-- Heading -->
+    <div class="flex justify-between items-center mb-6 md:mb-6 lg:mb-12">
+      <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold">GALLERY</h2>
+      <div class="flex space-x-3">
+        <button id="prevBtn" aria-label="Previous" class="w-7 h-7 md:w-7 md:h-7 lg:w-8 lg:h-8 xl:w-9 xl:h-9 rounded-full bg-gray-300 text-black flex items-center justify-center border border-black shadow-sm">
+          <img class="object-cover h-3 md:h-3 lg:h-4 xl:h-5" src="./images/aboutus/back.webp" alt="back"/>
+        </button>
+        <button id="nextBtn" aria-label="Next" class="w-7 h-7 md:w-7 md:h-7 lg:w-8 lg:h-8 xl:w-9 xl:h-9 rounded-full bg-gray-300 text-black flex items-center justify-center border border-black shadow-sm">
+          <img class="object-cover h-3 md:h-3 lg:h-4 xl:h-5" src="./images/aboutus/next.webp" alt="next"/>
+        </button>
+      </div>
+    </div>
+
+    <!-- Gallery Wrapper -->
+    <div id="galleryWrapper" class="grid grid-cols-1 md:grid-cols-3 gap-6 transition-all duration-500">
+      <!-- Images will load dynamically -->
+    </div>
+
+    <!-- Bottom Dots -->
+    <div id="indicatorWrapper" class="flex justify-center gap-3 mt-8"></div>
+  </section>
+
+ 
+<div class="border-t border-[#6B6B6B]"></div>
+
+<!-- FOOTER -->
+<footer class="bg-black text-[#6B6B6B] pt-4 pb-8 md:pt-10 md:pb-6 lg:pt-10 lg:pb-6">
+  <div class="mx-auto px-7.5 md:px-6 lg:px-11.5 xl:px-18 justify-between grid grid-cols-2 sm:grid-cols-2 md:grid-cols-6 lg:grid-cols-6 md:gap-0 lg:gap-8">
+    
+    
+    <div class="mx-[-5px] md:mx-auto pb-4 md:pb-0">
+      <h2 class="flex items-center gap-2 text-xl md:text-2xl lg:text-3xl font-bold">
+        <img src="./images/header/ivalogo.webp" alt="iVA Technos Logo" class="h-14 w-14 md:h-15 md:w-15 lg:h-16 lg:w-16">
+        <span class="text-[#D1A57B]">TECHNOS</span>
+      </h2>
+    </div>
+    <div></div>
+    <div class="md:ml-[-30px]">
+      <h3 class="text-base md:text-lg lg:text-xl text-white font-semibold mb-4">Company</h3>
+      <ul class="space-y-2 md:space-y-3">
+        <li><a href="./About_Us.html" class="text-xs md:text-sm lg:text-base hover:text-[#858585]">About US</a></li>
+        <li><a href="./Services.html" onclick="toggleServices()" class="text-xs md:text-sm lg:text-base hover:text-[#858585]">Services</a></li>
+        <li><a href="./Products.html" class="text-xs md:text-sm lg:text-base hover:text-[#858585]">Products</a></li>
+      </ul>
+    </div>
+
+   
+    <div class="md:ml-[-30px]">
+      <h3 class="text-base md:text-lg lg:text-xl text-white font-semibold mb-4">Social</h3>
+      <ul class="space-y-2 md:space-y-3">
+        <li><a href="#" class="text-xs md:text-sm lg:text-base hover:text-[#858585]">Instagram</a></li>
+        <li><a href="#" class="text-xs md:text-sm lg:text-base hover:text-[#858585]">LinkedIn</a></li>
+        <li><a href="#" class="text-xs md:text-sm lg:text-base hover:text-[#858585]">Twitter</a></li>
+      </ul>
+    </div>
+
+  
+    <div class="pt-6 md:pt-0 md:ml-[-40px]">
+      <h3 class="text-base md:text-lg lg:text-xl text-white font-semibold mb-4">Legal</h3>
+      <ul class="space-y-2 md:space-y-3">
+        <li><a href="#" class="text-xs md:text-sm lg:text-base hover:text-[#858585]">Privacy Policy</a></li>
+        <li><a href="#" class="text-xs md:text-sm lg:text-base hover:text-[#858585]">Terms & Conditions</a></li>
+      </ul>
+    </div>
+
+    
+    <div class="pt-6 md:pt-0 md:ml-[-10px]">
+      <h3 class="text-base md:text-lg lg:text-xl text-white font-semibold mb-4">Contact</h3>
+      <ul class="space-y-2 md:space-y-3">
+        <li><a href="mailto:info@ivatechnos.com" class="text-xs md:text-sm lg:text-base hover:text-[#858585]">info@ivatechnos.com</a></li>
+        <li><a href="tel:+911234567890" class="text-xs md:text-sm lg:text-base hover:text-[#858585]">+91 12345 67890</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  
+  <div class="mx-auto px-7 md:px-7 lg:px-12 xl:px-19 mt-10">
+    <p class="text-xs md:text-sm text-gray-500">@ 2025 by IVA TECHNOS</p>
+  </div>
+</footer>
+
+
+
+  <script>
+    // Gallery data (you can replace with real images)
+    const galleries = [
+      {
+        col1: ["./images/aboutus/ivatechnos.webp"],
+        col2: ["./images/aboutus/gallery5.webp", "./images/aboutus/gallery4.webp","./images/aboutus/gallery1.webp"],
+        col3: ["./images/aboutus/gallery3.webp"]
+      },
+      {
+        col1: ["./images/aboutus/gallery6.webp"],
+        col2: ["./images/aboutus/gallery7.webp", "./images/aboutus/gallery8.webp","./images/aboutus/gallery9.webp"],
+        col3: ["./images/aboutus/gallery10.webp"]
+      },
+      {
+        col1: ["./images/aboutus/gallery11.webp"],
+        col2: ["./images/aboutus/gallery12.webp", "./images/aboutus/gallery13.webp","./images/aboutus/gallery14.webp"],
+        col3: ["./images/aboutus/gallery15.webp"]
+      }
+    ];
+
+    let currentIndex = 0;
+
+    const galleryWrapper = document.getElementById("galleryWrapper");
+    const indicatorWrapper = document.getElementById("indicatorWrapper");
+
+    // Render gallery layout
+    function renderGallery(index) {
+      const gallery = galleries[index];
+
+
+      galleryWrapper.innerHTML = `
+        <!-- Column 1 -->
+        <div class="space-y-4 sm:space-y-6">
+          <img src="${gallery.col1[0]}" class="w-full h-[220px] sm:h-[300px] md:h-[424px] object-fill">
+        </div>
+
+        <!-- Column 2 -->
+        <div class="space-y-4 sm:space-y-6">
+          <img src="${gallery.col2[0]}" class="w-full h-[180px] sm:h-[200px] md:h-[200px] object-fill">
+          <div class="grid grid-cols-2 gap-6">
+            <img src="${gallery.col2[1]}" class="w-full h-[180px] sm:h-[200px] object-fill">
+            <img src="${gallery.col2[2]}" class="w-full h-[180px] sm:h-[200px] object-fill">
+          </div>
+        </div>
+
+        <!-- Column 3 -->
+        <div class="space-y-4 sm:space-y-6">
+          <img src="${gallery.col3[0]}" class="w-full h-[220px] sm:h-[300px] md:h-[424px] object-fill">
+        </div>
+      `;
+
+      // Render indicators
+      indicatorWrapper.innerHTML = galleries.map((_, i) => `
+        <span class="w-6 h-2 rounded-full ${i === index ? "bg-gray-300" : "bg-gray-600"}"></span>
+      `).join("");
+    }
+
+    // Initial load
+    renderGallery(currentIndex);
+
+    // Next / Prev buttons
+    document.getElementById("nextBtn").addEventListener("click", () => {
+      currentIndex = (currentIndex + 1) % galleries.length;
+      renderGallery(currentIndex);
+    });
+
+    document.getElementById("prevBtn").addEventListener("click", () => {
+      currentIndex = (currentIndex - 1 + galleries.length) % galleries.length;
+      renderGallery(currentIndex);
+    });
+  </script>
+
+
+
+</body>
+</html>
+
+

@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IVA Technos</title>
+   <link
+      rel="icon"
+      type="image/webp"
+      href="./images/header/ivalogo.webp"
+      
+    />
+
+      <link href="./output.css" rel="stylesheet" />
+
+     <!-- AOS CSS -->
+    <link href="./js/aos.css" rel="stylesheet" />
+
+    <script src="./js/scroll.js"></script>
+
+    <link href="./custom.css" rel="stylesheet" />
+
+    <script src="./js/tailwindbrowser.js"></script>
+
+   
+</head>
+<body class="bg-black text-white">
+
+  <!-- Header -->
+  <header class="absolute fixed md:sticky top-0 left-0 w-full bg-black/30 backdrop-blur-md shadow-md z-50">
+    <div class="flex px-6 py-3 justify-between md:justify-around mx-auto md:px-4 md:py-4">         
+        <a href="#" class="flex flex-shrink-0 items-center">
+         <img src="./images/header/ivalogo.webp" alt="iVA Technos Logo" class="h-15 w-15 md:h-16 md:w-16 lg:h-18 lg:w-18">
+        </a>    
+
+        <nav class="hidden md:flex items-center md:text-sm lg:text-lg text-white xl:ms-20 xl:pl-10">
+          <a href="./index.html" class="whitespace-nowrap hover:text-[#43C400] md:px-4 lg:px-5 xl:px-6">      
+            Home
+          </a>
+          <a href="./About_Us.html" class="whitespace-nowrap hover:text-[#43C400] md:px-4 lg:px-5 xl:px-6">About Us</a>
+          <div class="md:px-4 lg:px-5 xl:px-6 flex items-center">
+            <a href="./Services.html" class="relative font-medium whitespace-nowrap w-fit after:content-[''] after:block after:w-6 after:h-[2px] after:bg-[#298000] after:mx-auto">
+              Services
+            </a>
+            <button onclick="toggleServices()" class="group ml-1 flex flex-shrink-0 items-center">
+               <!-- Default chevron -->
+              <img src="./images/header/chevron.webp" class="md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5 block group-hover:hidden">
+              <!-- Green chevron (hover state) -->
+              <img src="./images/header/chevron_green.webp" class="md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5 hidden group-hover:block">
+            </button>
+          </div>
+          <div class="md:px-4 lg:px-5 xl:px-6 flex items-center">
+            <a href="./Products.html" class="whitespace-nowrap hover:text-[#43C400]">
+              Products
+            </a>
+            <button onclick="toggleProducts()" class="group ml-1 flex flex-shrink-0 items-center">
+               <!-- Default chevron -->
+              <img src="./images/header/chevron.webp" class="md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5 block group-hover:hidden">
+              <!-- Green chevron (hover state) -->
+              <img src="./images/header/chevron_green.webp" class="md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5 hidden group-hover:block">
+            </button>
+          </div>
+          <a href="./Careers.html" class="whitespace-nowrap hover:text-[#43C400] md:px-4 lg:px-5 xl:px-6">Careers</a>
+          <a href="./Contact.html" class="whitespace-nowrap hover:text-[#43C400] md:px-4 lg:px-5 xl:px-6">Contact</a>
+      
+          <a href="call.html" class="md:mr-5 md:ms-2 lg:ms-4 xl:ms-20 xl:pl-10">
+            <button 
+              class="flex items-center justify-center gap-2 bg-[#298000] hover:bg-[#1F6300] text-white rounded-lg font-medium md:px-6 lg:px-7 xl:px-8 py-2 shadow-md">
+              <img src="./images/header/phone.webp" class="md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5">
+              Call   
+            </button>
+          </a>
+      </nav>
+
+      <!-- Mobile Hamburger -->
+      <button id="menu-btn" class="text-white md:hidden text-2xl focus:outline-none">
+        <img src="./images/mobile_view/hamburger.webp" class="h-15 w-15">
+      </button>
+
+    </div>
+
+     <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-black/30  backdrop-blur-lg text-white  border-t border-white/20 px-7 py-4 space-y-3  
+           shadow-lg z-40">
+
+      <a href="./index.html" class="block hover:text-[#43C400]">Home</a>
+      <a href="./About_Us.html" class="block hover:text-[#43C400]">About Us</a>
+
+      <!-- Mobile Services dropdown -->
+      <div>
+          <div class="flex items-center justify-between w-full">
+            <a href="./Services.html" class="relative font-medium whitespace-nowrap w-fit after:content-[''] after:block after:w-6 after:h-[2px] after:bg-[#298000] after:mx-auto">
+              Services
+            </a>
+            <button data-dropdown="mobile-services" class="flex items-center">
+              <!-- Default chevron -->
+            <img src="./images/header/chevron.webp" class="w-5 h-5">     
+            </button>
+          </div>
+        <div id="mobile-services" class="hidden ml-4 mt-2 space-y-2">
+          <a href="./Embedded_System_Application.html" class="pt-1 inline-flex items-center gap-3 block hover:text-[#43C400]">
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded-md bg-white shadow"><img src="./images/header/turn_right.webp" class="w-3 h-3"></span>
+            <span class="font-medium">ESA</span>
+          </a><br/>
+          <a href="./Web_Application.html" class="pt-1 inline-flex items-center gap-3 block hover:text-[#43C400]">
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded-md bg-white shadow"><img src="./images/header/turn_right.webp" class="w-3 h-3"></span>
+            <span class="font-medium">Web Application</span>
+          </a><br/>
+          <a href="./Data_Annotation.html" class="pt-1 inline-flex items-center gap-3 block hover:text-[#43C400]">
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded-md bg-white shadow"><img src="./images/header/turn_right.webp" class="w-3 h-3"></span>
+            <span class="font-medium">Data Annotation</span>
+          </a><br/>
+          <a href="./Industrial_Automation.html" class="pt-1 inline-flex items-center gap-3 block hover:text-[#43C400]">
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded-md bg-white shadow"><img src="./images/header/turn_right.webp" class="w-3 h-3"></span>
+            <span class="font-medium">Industrial Automation</span>
+          </a><br/>
+          <a href="./Ecommerce_Application.html" class="pt-1 inline-flex items-center gap-3 block hover:text-[#43C400]">
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded-md bg-white shadow"><img src="./images/header/turn_right.webp" class="w-3 h-3"></span>
+            <span class="font-medium">E-commerce Application</span>
+          </a><br/>
+          <a href="./Infotainment.html" class="pt-1 inline-flex items-center gap-3 block hover:text-[#43C400]">
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded-md bg-white shadow"><img src="./images/header/turn_right.webp" class="w-3 h-3"></span>
+            <span class="font-medium text-[#43C400]">Infotainment</span>
+          </a><br/>
+          <a href="./3D_Printing.html" class="pt-1 inline-flex items-center gap-3 block hover:text-[#43C400]">
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded-md bg-white shadow"><img src="./images/header/turn_right.webp" class="w-3 h-3"></span>
+            <span class="font-medium">3D Printing</span>
+          </a><br/>
+           <a href="./Mobile_Application.html" class="pt-1 inline-flex items-center gap-3 block hover:text-[#43C400]">
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded-md bg-white shadow"><img src="./images/header/turn_right.webp" class="w-3 h-3"></span>
+            <span class="font-medium">Mobile Application</span>
+          </a><br/>
+           <a href="./Digital_Cloud_Services.html" class="pt-1 inline-flex items-center gap-3 block hover:text-[#43C400]">
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded-md bg-white shadow"><img src="./images/header/turn_right.webp" class="w-3 h-3"></span>
+            <span class="font-medium">Digital-Cloud Services</span>
+          </a>
+        </div>
+      </div>
+
+       <!-- Mobile Products dropdown -->
+      <div>
+        <div class="flex items-center justify-between w-full">
+            <a href="./Products.html" class="relative whitespace-nowrap w-fit">
+               Products
+            </a>
+            <button data-dropdown="mobile-products" class="flex items-center">
+              <!-- Default chevron -->
+            <img src="./images/header/chevron.webp" class="w-5 h-5">     
+            </button>
+          </div>
+
+         <div id="mobile-products" class="hidden ml-4 mt-2 space-y-2">
+          <a href="./Compressor_Controller.html" class="pt-1 inline-flex items-center gap-3 block hover:text-[#43C400]">
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded-md bg-white shadow"><img src="./images/header/turn_right.webp" class="w-3 h-3"></span>
+            <span class="font-medium">Compressor Controller</span>
+          </a><br/>
+          <a href="./Diagnostic_Scan_Tool.html" class="pt-1 inline-flex items-center gap-3 block hover:text-[#43C400]">
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded-md bg-white shadow"><img src="./images/header/turn_right.webp" class="w-3 h-3"></span>
+            <span class="font-medium">H200 – Diagnostic Scan Tool</span>
+          </a><br/>
+          <a href="./ITV_EGR_Performance_Tester.html" class="pt-1 inline-flex items-center gap-3 block hover:text-[#43C400]">
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded-md bg-white shadow"><img src="./images/header/turn_right.webp" class="w-3 h-3"></span>
+            <span class="font-medium">ITV/EGR Performance Tester</span>
+          </a><br/>
+          <a href="./Vehicle_Speed_Simulator.html" class="pt-1 inline-flex items-center gap-3 block hover:text-[#43C400]">
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded-md bg-white shadow"><img src="./images/header/turn_right.webp" class="w-3 h-3"></span>
+            <span class="font-medium">Vehicle Speed Simulator</span>
+          </a><br/>
+          <a href="./Wireless_Temperature_Logger.html" class="pt-1 inline-flex items-center gap-3 block hover:text-[#43C400]">
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded-md bg-white shadow"><img src="./images/header/turn_right.webp" class="w-3 h-3"></span>
+            <span class="font-medium">Wireless Temperature Logger</span>
+          </a><br/>
+          <a href="./My_Park_Parking_Solution.html" class="pt-1 inline-flex items-center gap-3 block hover:text-[#43C400]">
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded-md bg-white shadow"><img src="./images/header/turn_right.webp" class="w-3 h-3"></span>
+            <span class="font-medium">My Park – Parking Solution</span>
+          </a><br/>
+          <a href="./Lightning_Counter_Tester.html" class="pt-1 inline-flex items-center gap-3 block hover:text-[#43C400]">
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded-md bg-white shadow"><img src="./images/header/turn_right.webp" class="w-3 h-3"></span>
+            <span class="font-medium">Lightning Counter & Tester</span>
+          </a><br/>
+          <a href="./Internet_Radio.html" class="pt-1 inline-flex items-center gap-3 block hover:text-[#43C400]">
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded-md bg-white shadow"><img src="./images/header/turn_right.webp" class="w-3 h-3"></span>
+            <span class="font-medium">Internet Radio</span>
+          </a><br/>
+          <a href="./T4_Test_Rig.html" class="pt-1 inline-flex items-center gap-3 block hover:text-[#43C400]">
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded-md bg-white shadow"><img src="./images/header/turn_right.webp" class="w-3 h-3"></span>
+            <span class="font-medium">T4 – Test Rig</span>
+          </a><br/>
+           <a href="./H200_Wireless_OBD_Dongle.html" class="pt-1 inline-flex items-center gap-3 block hover:text-[#43C400]">
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded-md bg-white shadow"><img src="./images/header/turn_right.webp" class="w-3 h-3"></span>
+            <span class="font-medium">H200 – Wireless OBD Dongle</span>
+          </a><br/>
+           <a href="./HC_Dozer_Test_Rig.html" class="pt-1 inline-flex items-center gap-3 block hover:text-[#43C400]">
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded-md bg-white shadow"><img src="./images/header/turn_right.webp" class="w-3 h-3"></span>
+            <span class="font-medium">HC Dozer Test Rig</span>
+          </a><br/>
+          <a href="./Cable_Test_Rig.html" class="pt-1 inline-flex items-center gap-3 block hover:text-[#43C400]">
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded-md bg-white shadow"><img src="./images/header/turn_right.webp" class="w-3 h-3"></span>
+            <span class="font-medium">Cable Test Rig</span>
+          </a><br/>
+          <a href="./XCP_CAN.html" class="pt-1 inline-flex items-center gap-3 block hover:text-[#43C400]">
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded-md bg-white shadow"><img src="./images/header/turn_right.webp" class="w-3 h-3"></span>
+            <span class="font-medium">XCP CAN</span>
+          </a>
+        </div>
+      </div>
+
+      <a href="./Careers.html" class="block hover:text-[#43C400]">Careers</a>
+      <a href="./Contact.html" class="block hover:text-[#43C400]">Contact</a><br/>
+
+      <a href="#">
+        <button class="-mt-2.5 md:mt-0 w-full px-4 py-2 text-white flex items-center justify-center gap-2 bg-[#298000] hover:bg-[#1F6300] text-white rounded-md font-medium shadow-md">
+         <img src="./images/header/phone.webp" class="w-4 h-4"> Call
+        </button>
+      </a>
+
+    </div>
+    
+  </header>
+
+
+  
+  <section id="services-section" 
+    class="backdrop hidden hidden fixed top-22 left-0 w-full bg-black/50 
+           border-t border-white/20 shadow-lg z-40">
+          
+    <div class="max-w-full flex items-start mx-auto md:gap-4 lg:gap-6 xl:gap-6 px-0 py-10">
+       <!-- Left: title -->
+      <div class="grid grid-cols-1 xl:min-w-[100px] md:pl-[28px] lg:pl-[50px] xl:pl-[75px]">
+          <h2 class="md:text-xl lg:text-2xl xl:text-3xl font-bold leading-tight text-white">OUR<br>SERVICES</h2>
+      </div>
+      <div class="grid grid-cols-1 xl:min-w-[200px] md:pl-3 lg:pl-3 xl:pl-6">
+
+      </div>
+
+       <!-- Right: services grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 md:gap-x-4 lg:gap-x-4 xl:gap-x-8 md:gap-y-5 lg:gap-y-10 xl:gap-y-10 flex-1 text-white">
+        
+        <a href="./Embedded_System_Application.html" class="inline-flex items-center gap-3 hover:text-[#43C400]">
+          <span class="inline-flex items-center justify-center md:w-7 md:h-7 lg:w-8 lg:h-8 xl:w-9 xl:h-9 rounded-md bg-white shadow"><img src="./images/header/turn_right.webp" class="md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5"></span>
+          <span class="md:text-base lg:text-lg xl:text-xl font-medium">ESA</span>
+        </a>
+        <a href="./Web_Application.html" class="inline-flex items-center gap-3 hover:text-[#43C400]">
+          <span class="inline-flex items-center justify-center md:w-7 md:h-7 lg:w-8 lg:h-8 xl:w-9 xl:h-9 rounded-md bg-white text-green-700 shadow"><img src="./images/header/turn_right.webp" class="md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5"></span>
+          <span class="md:text-base lg:text-lg xl:text-xl font-medium">Web Application</span>
+        </a>
+        <a href="./Data_Annotation.html" class="inline-flex items-center gap-3 hover:text-[#43C400]">
+          <span class="inline-flex items-center justify-center md:w-7 md:h-7 lg:w-8 lg:h-8 xl:w-9 xl:h-9 rounded-md bg-white text-green-700 shadow"><img src="./images/header/turn_right.webp" class="md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5"></span>
+          <span class="md:text-base lg:text-lg xl:text-xl font-medium">Data Annotation</span>
+        </a>
+        <a href="./Industrial_Automation.html" class="inline-flex items-center gap-3 hover:text-[#43C400]">
+          <span class="inline-flex items-center justify-center md:w-7 md:h-7 lg:w-8 lg:h-8 xl:w-9 xl:h-9 rounded-md bg-white text-green-700 shadow"><img src="./images/header/turn_right.webp" class="md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5"></span>
+          <span class="md:text-base lg:text-lg xl:text-xl font-medium">Industrial Automation</span>
+        </a>
+        <a href="./Ecommerce_Application.html" class="inline-flex items-center gap-3 hover:text-[#43C400]">
+          <span class="inline-flex items-center justify-center md:w-7 md:h-7 lg:w-8 lg:h-8 xl:w-9 xl:h-9 rounded-md bg-white text-green-700 shadow"><img src="./images/header/turn_right.webp" class="md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5"></span>
+          <span class="md:text-base lg:text-lg xl:text-xl font-medium">E-commerce Application</span>
+        </a>
+        <a href="./Infotainment.html" class="inline-flex items-center gap-3 hover:text-[#43C400]">
+          <span class="inline-flex items-center justify-center md:w-7 md:h-7 lg:w-8 lg:h-8 xl:w-9 xl:h-9 rounded-md bg-white text-green-700 shadow"><img src="./images/header/turn_right.webp" class="md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5"></span>
+          <span class="md:text-base lg:text-lg xl:text-xl font-medium text-[#43C400]">Infotainment</span>
+        </a>
+         <a href="./3D_Printing.html" class="inline-flex items-center gap-3 hover:text-[#43C400]">
+          <span class="inline-flex items-center justify-center md:w-7 md:h-7 lg:w-8 lg:h-8 xl:w-9 xl:h-9 rounded-md bg-white text-green-700 shadow"><img src="./images/header/turn_right.webp" class="md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5"></span>
+          <span class="md:text-base lg:text-lg xl:text-xl font-medium">3D Printing</span>
+        </a>
+        <a href="./Mobile_Application.html" class="inline-flex items-center gap-3 hover:text-[#43C400]">
+          <span class="inline-flex items-center justify-center md:w-7 md:h-7 lg:w-8 lg:h-8 xl:w-9 xl:h-9 rounded-md bg-white text-green-700 shadow"><img src="./images/header/turn_right.webp" class="md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5"></span>
+          <span class="md:text-base lg:text-lg xl:text-xl font-medium">Mobile Application</span>
+        </a>
+        <a href="./Digital_Cloud_Services.html" class="inline-flex items-center gap-3 hover:text-[#43C400]">
+          <span class="inline-flex items-center justify-center md:w-7 md:h-7 lg:w-8 lg:h-8 xl:w-9 xl:h-9 rounded-md bg-white text-green-700 shadow"><img src="./images/header/turn_right.webp" class="md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5"></span>
+          <span class="md:text-base lg:text-lg xl:text-xl font-medium">Digital Cloud-Services</span>
+        </a>
+      </div>
+      <div class="grid grid-cols-1 xl:min-w-[200px] md:pl-3 lg:pl-3 xl:pl-6">
+        
+      </div>
+    </div>
+  </section>
+
+  <section id="products-section" 
+    class="backdrop hidden hidden fixed top-22 left-0 w-full bg-black/50
+           border-t border-white/20 shadow-lg z-40">
+         
+    <div class="max-w-full flex items-start mx-auto md:gap-4 lg:gap-6 xl:gap-6 px-0 py-10">
+       <!-- Left: title -->       
+      <div class="grid grid-cols-1 xl:min-w-[100px] md:pl-[28px] lg:pl-[50px] xl:pl-[75px]">
+          <h2 class="md:text-xl lg:text-2xl xl:text-3xl font-bold leading-tight text-white">OUR<br>PRODUCTS</h2>
+      </div>
+      <div class="grid grid-cols-1 xl:min-w-[200px] md:pl-3 lg:pl-3 xl:pl-6">
+
+      </div>
+
+       <!-- Right: products grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 md:gap-x-4 lg:gap-x-4 xl:gap-x-8 md:gap-y-5 lg:gap-y-10 xl:gap-y-10 flex-1 text-white">
+        
+        <a href="./Compressor_Controller.html" class="inline-flex items-center gap-3 hover:text-[#43C400]">
+          <span class="inline-flex items-center justify-center md:w-7 md:h-7 lg:w-8 lg:h-8 xl:w-9 xl:h-9 rounded-md bg-white shadow"><img src="./images/header/turn_right.webp" class="md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5"></span>
+          <span class="md:text-base lg:text-lg xl:text-xl font-medium">Compressor Controller</span>
+        </a>
+        <a href="./Diagnostic_Scan_Tool.html" class="inline-flex items-center gap-3 hover:text-[#43C400]">
+          <span class="inline-flex items-center justify-center md:w-7 md:h-7 lg:w-8 lg:h-8 xl:w-9 xl:h-9 rounded-md bg-white text-green-700 shadow"><img src="./images/header/turn_right.webp" class="md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5"></span>
+          <span class="md:text-base lg:text-lg xl:text-xl font-medium">H200 – Diagnostic Scan Tool</span>
+        </a>
+        <a href="./ITV_EGR_Performance_Tester.html" class="inline-flex items-center gap-3 hover:text-[#43C400]">
+          <span class="inline-flex items-center justify-center md:w-7 md:h-7 lg:w-8 lg:h-8 xl:w-9 xl:h-9 rounded-md bg-white text-green-700 shadow"><img src="./images/header/turn_right.webp" class="md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5"></span>
+          <span class="md:text-base lg:text-lg xl:text-xl font-medium">ITV/EGR Performance Tester</span>
+        </a>
+        <a href="./Vehicle_Speed_Simulator.html" class="inline-flex items-center gap-3 hover:text-[#43C400]">
+          <span class="inline-flex items-center justify-center md:w-7 md:h-7 lg:w-8 lg:h-8 xl:w-9 xl:h-9 rounded-md bg-white text-green-700 shadow"><img src="./images/header/turn_right.webp" class="md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5"></span>
+          <span class="md:text-base lg:text-lg xl:text-xl font-medium">Vehicle Speed Simulator</span>
+        </a>
+        <a href="./Wireless_Temperature_Logger.html" class="inline-flex items-center gap-3 hover:text-[#43C400]">
+          <span class="inline-flex items-center justify-center md:w-7 md:h-7 lg:w-8 lg:h-8 xl:w-9 xl:h-9 rounded-md bg-white text-green-700 shadow"><img src="./images/header/turn_right.webp" class="md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5"></span>
+          <span class="md:text-base lg:text-lg xl:text-xl font-medium">Wireless Temperature Logger</span>
+        </a>
+        <a href="./My_Park_Parking_Solution.html" class="inline-flex items-center gap-3 hover:text-[#43C400]">
+          <span class="inline-flex items-center justify-center md:w-7 md:h-7 lg:w-8 lg:h-8 xl:w-9 xl:h-9 rounded-md bg-white text-green-700 shadow"><img src="./images/header/turn_right.webp" class="md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5"></span>
+          <span class="md:text-base lg:text-lg xl:text-xl font-medium">My Park – Parking Solution</span>
+        </a>
+         <a href="./Lightning_Counter_Tester.html" class="inline-flex items-center gap-3 hover:text-[#43C400]">
+          <span class="inline-flex items-center justify-center md:w-7 md:h-7 lg:w-8 lg:h-8 xl:w-9 xl:h-9 rounded-md bg-white text-green-700 shadow"><img src="./images/header/turn_right.webp" class="md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5"></span>
+          <span class="md:text-base lg:text-lg xl:text-xl font-medium">Lightning Counter & Tester</span>
+        </a>
+        <a href="./Internet_Radio.html" class="inline-flex items-center gap-3 hover:text-[#43C400]">
+          <span class="inline-flex items-center justify-center md:w-7 md:h-7 lg:w-8 lg:h-8 xl:w-9 xl:h-9 rounded-md bg-white text-green-700 shadow"><img src="./images/header/turn_right.webp" class="md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5"></span>
+          <span class="md:text-base lg:text-lg xl:text-xl font-medium">Internet Radio</span>
+        </a>
+        <a href="./T4_Test_Rig.html" class="inline-flex items-center gap-3 hover:text-[#43C400]">
+          <span class="inline-flex items-center justify-center md:w-7 md:h-7 lg:w-8 lg:h-8 xl:w-9 xl:h-9 rounded-md bg-white text-green-700 shadow"><img src="./images/header/turn_right.webp" class="md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5"></span>
+          <span class="md:text-base lg:text-lg xl:text-xl font-medium">T4 – Test Rig</span>
+        </a>
+        <a href="./H200_Wireless_OBD_Dongle.html" class="inline-flex items-center gap-3 hover:text-[#43C400]">
+          <span class="inline-flex items-center justify-center md:w-7 md:h-7 lg:w-8 lg:h-8 xl:w-9 xl:h-9 rounded-md bg-white text-green-700 shadow"><img src="./images/header/turn_right.webp" class="md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5"></span>
+          <span class="md:text-base lg:text-lg xl:text-xl font-medium">H200 – Wireless OBD Dongle</span>
+        </a>
+         <a href="./HC_Dozer_Test_Rig.html" class="inline-flex items-center gap-3 hover:text-[#43C400]">
+          <span class="inline-flex items-center justify-center md:w-7 md:h-7 lg:w-8 lg:h-8 xl:w-9 xl:h-9 rounded-md bg-white text-green-700 shadow"><img src="./images/header/turn_right.webp" class="md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5"></span>
+          <span class="md:text-base lg:text-lg xl:text-xl font-medium">HC Dozer Test Rig</span>
+        </a>
+         <a href="./Cable_Test_Rig.html" class="inline-flex items-center gap-3 hover:text-[#43C400]">
+          <span class="inline-flex items-center justify-center md:w-7 md:h-7 lg:w-8 lg:h-8 xl:w-9 xl:h-9 rounded-md bg-white text-green-700 shadow"><img src="./images/header/turn_right.webp" class="md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5"></span>
+          <span class="md:text-base lg:text-lg xl:text-xl font-medium">Cable Test Rig</span>
+        </a>
+         <a href="./XCP_CAN.html" class="inline-flex items-center gap-3 hover:text-[#43C400]">
+          <span class="inline-flex items-center justify-center md:w-7 md:h-7 lg:w-8 lg:h-8 xl:w-9 xl:h-9 rounded-md bg-white text-green-700 shadow"><img src="./images/header/turn_right.webp" class="md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5"></span>
+          <span class="md:text-base lg:text-lg xl:text-xl font-medium">XCP CAN</span>
+        </a>
+      </div>
+      <div class="grid grid-cols-1 xl:min-w-[200px] md:pl-3 lg:pl-3 xl:pl-6">
+        
+      </div>
+    </div>
+  </section>
+
+<style>
+  .backdrop {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+</style>
+
+
+<script>
+   
+    function toggleServices() {
+      const section = document.getElementById("services-section");
+      section.classList.toggle("hidden");
+    }
+  </script>  
+
+  <script>
+   
+    function toggleProducts() {
+      const section = document.getElementById("products-section");
+      section.classList.toggle("hidden");
+    }
+  </script>  
+
+<script>
+  // Mobile menu toggle
+  const menuBtn = document.getElementById("menu-btn");
+  const mobileMenu = document.getElementById("mobile-menu");
+  const desktopServices = document.getElementById("services-section");
+  const desktopProducts = document.getElementById("products-section");
+
+  // Always hide desktop dropdowns when mobile menu is opened
+  menuBtn.addEventListener("click", () => {
+    mobileMenu.classList.toggle("hidden");
+    desktopServices.classList.add("hidden");
+    desktopProducts.classList.add("hidden");
+  });
+
+  // Dropdown toggle (for Services, Products etc.)
+  const dropdownBtns = document.querySelectorAll("[data-dropdown]");
+
+  dropdownBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const dropdownId = btn.getAttribute("data-dropdown");
+      const dropdown = document.getElementById(dropdownId);
+      dropdown.classList.toggle("hidden");
+
+      // If mobile Services or Products dropdown is open → hide desktop ones
+      if ((dropdownId === "mobile-services" || dropdownId === "mobile-products") 
+          && !dropdown.classList.contains("hidden")) {
+        desktopServices.classList.add("hidden");
+        desktopProducts.classList.add("hidden");
+      }
+    });
+  });
+
+  // Extra safety: hide desktop dropdowns on window resize to mobile
+  window.addEventListener("resize", () => {
+    if (window.innerWidth < 768) {
+      desktopServices.classList.add("hidden");
+      desktopProducts.classList.add("hidden");
+    }
+  });
+</script>
+
+<!-- ================= SECTION 1 : HERO ================= -->
+<div class="mx-auto grid grid-cols-1 lg:grid-cols-2 gap-5 md:gap-6 px-8 md:px-10 lg:px-12 xl:px-20 py-4 md:py-6 lg:py-6 xl:py-8 mt-[88px] md:mt-0">
+
+  <!-- Left Image Box -->
+  <div class="relative group h-60 md:h-auto lg:h-auto xl:h-full rounded-2xl shadow-xl border border-white/30 overflow-hidden">
+    <img src="./images/services/infotainment/infotainment.webp" alt="infotainment" 
+         class="w-full h-full transition-transform duration-500 group-hover:scale-105"> 
+  </div>
+
+  <!-- Right Content Box -->
+  <div class="relative h-auto md:h-95 lg:h-145 xl:h-full bg-gradient-to-r from-[#298000]/50 to-[#145214]/80 backdrop-blur-xl border border-white/30 rounded-2xl shadow-xl p-3 md:p-4 lg:pt-5 xl:p-6 flex flex-col justify-center">
+    <h2 class="text-base md:text-2xl lg:text-2xl xl:text-3xl font-semibold mb-2 md:mb-4 lg:mb-4 xl:mb-6 text-center">
+      IN-VEHICLE INFOTAINMENT SOFTWARE DEVELOPMENT
+    </h2>
+    <p class="text-justify md:leading-relaxed px-2 text-sm md:text-base lg:text-base xl:text-lg">
+      We have demonstrated a unique competency 
+      in developing the key features of IVI systems 
+      on different platforms – Linux / Android.
+    </p>
+
+    <ul class="list-disc pl-5 pt-2 space-y-3 md:text-justify md:leading-relaxed px-2 text-sm md:text-base lg:text-base xl:text-lg">
+      <li>HMI development</li>
+      <li>Application framework/ development</li>
+      <li>Middleware software development</li>
+      <li>BSP customization/ optimization</li>
+      <li>Driver development</li>
+      <li>Kernel customization/optimization</li>
+      <li>Porting IVI software on different hardware & OS platforms.</li>
+    </ul>
+
+  </div>
+</div>
+
+
+<!-- ================= SECTION 2 : OUR CORE EXPERTISE ================= -->
+<div class="mx-auto px-8 md:px-10 lg:px-12 xl:px-20 py-0 mb-6 md:mb-4 md:py-7 lg:py-8 xl:py-8 overflow-hidden">
+  <h2 class="text-base md:text-lg lg:text-xl xl:text-2xl font-semibold mb-5 md:mb-6">
+    PLATEFORM FOR AUTOMOTIVE APPLICATION 
+  </h2>
+
+  <!-- Carousel Wrapper -->
+  <div class="wrapper relative w-full overflow-hidden">
+    <div class="scroll-track">
+
+      <!-- Carousel -->
+      <div class="carouse flex h-40 md:h-[130px] lg:h-[160px] xl:h-[180px] overflow-x-auto scroll-smooth no-scrollbar">
+        <!--Card 1-->
+        <div class="card expertise-box w-full sm:w-1/2 md:w-1/3 lg:w-1/4">
+          <img src="./images/services/infotainment/bootloader.webp" alt="Rapid Prototype" class="w-[70px] h-[70px] md:w-[80px] md:h-[80px] lg:w-[90px] lg:h-[90px] xl:w-[100px] xl:h-[100px] object-contain">
+          <p class="lg:text-base xl:text-lg font-semibold pt-2 md:pt-2">Bootloader</p>
+        </div>
+         <div class="card expertise-box w-full sm:w-1/2 md:w-1/3 lg:w-1/4">
+          <img src="./images/services/infotainment/board_support_package.webp" alt="Ender" class="w-[70px] h-[70px] md:w-[80px] md:h-[80px] lg:w-[90px] lg:h-[90px] xl:w-[100px] xl:h-[100px] object-contain">
+          <p class="lg:text-base xl:text-lg font-semibold pt-2 md:pt-2">Board Support Package (BSP)</p>
+        </div>
+        <div class="card expertise-box w-full sm:w-1/2 md:w-1/3 lg:w-1/4">
+          <img src="./images/services/infotainment/device_drivers_development.webp" alt="Cura" class="w-[70px] h-[70px] md:w-[80px] md:h-[80px] lg:w-[90px] lg:h-[90px] xl:w-[100px] xl:h-[100px] object-contain">
+          <p class="lg:text-base xl:text-lg font-semibold pt-2 md:pt-2">Device Drivers Development </p>
+        </div>
+        <div class="card expertise-box w-full sm:w-1/2 md:w-1/3 lg:w-1/4">
+          <img src="./images/services/infotainment/reference_platforms.webp" alt="Creality" class="w-[70px] h-[70px] md:w-[80px] md:h-[80px] lg:w-[90px] lg:h-[90px] xl:w-[100px] xl:h-[100px] object-contain">
+          <p class="lg:text-base xl:text-lg font-semibold pt-2 md:pt-2">Reference Platforms</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+
+<!-- ================= SECTION 3 : CORE VALUES ================= -->
+<section id="core-services" class="relative px-8 md:px-10 lg:px-12 xl:px-20 py-4 md:py-8 lg:py-6 xl:py-8 pb-8 md:pb-8 lg:pb-10 xl:pb-10 border-t border-white/30">
+  
+  <!-- Background with overlay -->
+  <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('./images/services/Industrial_Automation/chip.webp');"></div>
+  <div class="absolute inset-0 bg-black/80 bg-opacity-80"></div>
+
+
+  <!-- Content -->
+  <div class="relative mx-auto text-center">
+    <h2 class="text-xl md:text-2xl lg:text-3xl xl:text-4xl font-semibold mb-5 md:mb-8 lg:mb-10">INFOTAINMENT SOFTWARE DEVELOPMENT</h2>
+
+    <div class="grid md:grid-cols-2 gap-4 md:gap-6 lg:gap-6 xl:gap-8 text-sm md:text-sm lg:text-base xl:text-lg text-left">
+      
+      <div class="bg-white/10 backdrop-blur-xl rounded-xl p-4 md:p-5 border border-white/10 shadow-lg">
+        
+        <div class="flex items-start font-semibold gap-2 text-justify">
+          <img src="./images/services/Industrial_Automation/check.webp" class="pt-2 w-3 md:w-4 lg:w-4 xl:w-5 h-auto">
+          <span class="font-semibold">Media:
+            <span class="font-normal md:leading-relaxed">
+              Audio Streaming, Media Browsing, Metadata handling, Video Streaming. 
+            </span>
+          </span>
+        </div>
+      </div>
+
+      <div class="bg-white/10 backdrop-blur-xl rounded-xl p-4 md:p-5 border border-white/10 shadow-lg">
+
+        <div class="flex items-start font-semibold gap-2 text-justify">
+          <img src="./images/services/Industrial_Automation/check.webp" class="pt-2 w-3 md:w-4 lg:w-4 xl:w-5 h-auto">
+          <span class="font-semibold">Tuner:
+            <span class="font-normal md:leading-relaxed">
+              FM, AM and DAB handling, Station Seeking and scanning, Station Metadata handling
+            </span>
+          </span>
+        </div>
+      </div>
+
+      <div class="bg-white/10 backdrop-blur-xl rounded-xl p-4 md:p-5 border border-white/10 shadow-lg">
+        
+        <div class="flex items-start font-semibold gap-2 text-justify">
+          <img src="./images/services/Industrial_Automation/check.webp" class="pt-2 w-3 md:w-4 lg:w-4 xl:w-5 h-auto">
+          <span class="font-semibold">Bluetooth (5.1): 
+            <span class="font-normal md:leading-relaxed">
+              Connection Management, HF and A2DP Profile Management, BT Streaming.
+            </span>
+          </span>
+        </div>
+      </div>
+
+      <div class="bg-white/10 backdrop-blur-xl rounded-xl p-4 md:p-5 border border-white/10 shadow-lg">
+
+        <div class="flex items-start font-semibold gap-2 text-justify">
+          <img src="./images/services/Industrial_Automation/check.webp" class="pt-2 w-3 md:w-4 lg:w-4 xl:w-5 h-auto">
+          <span class="font-semibold">Power Management:
+            <span class="font-normal md:leading-relaxed">
+              System Power Mode handling, Power On/Off cycle Management, Reset Handling.
+            </span> 
+          </span>
+        </div>
+      </div>
+
+      <div class="bg-white/10 backdrop-blur-xl rounded-xl p-4 md:p-5 border border-white/10 shadow-lg md:col-span-2">
+        
+        <div class="flex items-start font-semibold gap-2 text-justify">
+          <img src="./images/services/Industrial_Automation/check.webp" class="pt-2 w-3 md:w-4 lg:w-4 xl:w-5 h-auto">
+          <span class="font-semibold">Vehicle Interface:
+            <span class="font-normal md:leading-relaxed">
+              CAN Interface, Signal Filtering, Ignition Management, Temperature control. 
+            </span> 
+          </span> 
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ================= CUSTOM STYLES ================= -->
+<style>
+  /* Expertise box styling */
+  .expertise-box {
+   
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #0D1F08;
+    border-right: 1px solid #15360c;
+    transition: transform 0.3s ease;
+  }
+  
+  /* Optional: hide scrollbar */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+  .no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+  
+</style>
+
+<div class="border-t border-[#6B6B6B]"></div>
+
+<!-- FOOTER -->
+<footer class="bg-black text-[#6B6B6B] pt-4 pb-8 md:pt-10 md:pb-6 lg:pt-10 lg:pb-6">
+  <div class="mx-auto px-7.5 md:px-6 lg:px-11.5 xl:px-18 justify-between grid grid-cols-2 sm:grid-cols-2 md:grid-cols-6 lg:grid-cols-6 md:gap-0 lg:gap-8">
+    
+    
+    <div class="mx-[-5px] md:mx-auto pb-4 md:pb-0">
+      <h2 class="flex items-center gap-2 text-xl md:text-2xl lg:text-3xl font-bold">
+        <img src="./images/header/ivalogo.webp" alt="iVA Technos Logo" class="h-14 w-14 md:h-15 md:w-15 lg:h-16 lg:w-16">
+        <span class="text-[#D1A57B]">TECHNOS</span>
+      </h2>
+    </div>
+    <div></div>
+    <div class="md:ml-[-30px]">
+      <h3 class="text-base md:text-lg lg:text-xl text-white font-semibold mb-4">Company</h3>
+      <ul class="space-y-2 md:space-y-3">
+        <li><a href="./About_Us.html" class="text-xs md:text-sm lg:text-base hover:text-[#858585]">About US</a></li>
+        <li><a href="./Services.html" onclick="toggleServices()" class="text-xs md:text-sm lg:text-base hover:text-[#858585]">Services</a></li>
+        <li><a href="./Products.html" class="text-xs md:text-sm lg:text-base hover:text-[#858585]">Products</a></li>
+      </ul>
+    </div>
+
+   
+    <div class="md:ml-[-30px]">
+      <h3 class="text-base md:text-lg lg:text-xl text-white font-semibold mb-4">Social</h3>
+      <ul class="space-y-2 md:space-y-3">
+        <li><a href="#" class="text-xs md:text-sm lg:text-base hover:text-[#858585]">Instagram</a></li>
+        <li><a href="#" class="text-xs md:text-sm lg:text-base hover:text-[#858585]">LinkedIn</a></li>
+        <li><a href="#" class="text-xs md:text-sm lg:text-base hover:text-[#858585]">Twitter</a></li>
+      </ul>
+    </div>
+
+  
+    <div class="pt-6 md:pt-0 md:ml-[-40px]">
+      <h3 class="text-base md:text-lg lg:text-xl text-white font-semibold mb-4">Legal</h3>
+      <ul class="space-y-2 md:space-y-3">
+        <li><a href="#" class="text-xs md:text-sm lg:text-base hover:text-[#858585]">Privacy Policy</a></li>
+        <li><a href="#" class="text-xs md:text-sm lg:text-base hover:text-[#858585]">Terms & Conditions</a></li>
+      </ul>
+    </div>
+
+    
+    <div class="pt-6 md:pt-0 md:ml-[-10px]">
+      <h3 class="text-base md:text-lg lg:text-xl text-white font-semibold mb-4">Contact</h3>
+      <ul class="space-y-2 md:space-y-3">
+        <li><a href="mailto:info@ivatechnos.com" class="text-xs md:text-sm lg:text-base hover:text-[#858585]">info@ivatechnos.com</a></li>
+        <li><a href="tel:+911234567890" class="text-xs md:text-sm lg:text-base hover:text-[#858585]">+91 12345 67890</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  
+  <div class="mx-auto px-7 md:px-7 lg:px-11 xl:px-19 mt-10">
+    <p class="text-xs md:text-sm text-gray-500">@ 2025 by IVA TECHNOS</p>
+  </div>
+</footer>
+
+
+<script>
+  const wrapper = document.querySelector(".wrapper");
+const carouse = document.querySelector(".carouse");
+const firstcardWidth = carouse.querySelector(".card").offsetWidth;
+const arrowBtns = document.querySelectorAll(".wrapper i");
+const carouseChildrens = [...carouse.children];
+
+let isDragging = false, isAutoPlay = true, startX, startScrollLeft, timeoutId;
+
+// Get the number of cards that can fit in the carouse at once
+let cardPerView = Math.round(carouse.offsetWidth / firstcardWidth);
+
+// Insert copies of the last few cards to beginning of carouse for infinite scrolling
+carouseChildrens.slice(-cardPerView).reverse().forEach(card => {
+    carouse.insertAdjacentHTML("afterbegin", card.outerHTML);
+});
+
+// Insert copies of the first few cards to end of carouse for infinite scrolling
+carouseChildrens.slice(0, cardPerView).forEach(card => {
+    carouse.insertAdjacentHTML("beforeend", card.outerHTML);
+});
+
+// Scroll the carouse at appropriate postition to hide first few duplicate cards on Firefox
+carouse.classList.add("no-transition");
+carouse.scrollLeft = carouse.offsetWidth;
+carouse.classList.remove("no-transition");
+
+// Add event listeners for the arrow buttons to scroll the carouse left and right
+arrowBtns.forEach(btn => {
+    btn.addEventListener("click", () => {
+        carouse.scrollLeft += btn.id == "left" ? -firstcardWidth : firstcardWidth;
+    });
+});
+
+// Save the original items
+const originalItems = carouse.innerHTML;
+
+// Append the original items 3 extra times (total = 4 sets)
+for (let i = 0; i < 3; i++) {
+  carouse.innerHTML += originalItems;
+}
+
+const dragStart = (e) => {
+    isDragging = true;
+    carouse.classList.add("dragging");
+    // Records the initial cursor and scroll position of the carouse
+    startX = e.pageX;
+    startScrollLeft = carouse.scrollLeft;
+}
+
+const dragging = (e) => {
+    if(!isDragging) return; // if isDragging is false return from here
+    // Updates the scroll position of the carouse based on the cursor movement
+    carouse.scrollLeft = startScrollLeft - (e.pageX - startX);
+}
+
+const dragStop = () => {
+    isDragging = false;
+    carouse.classList.remove("dragging");
+}
+
+const infiniteScroll = () => {
+    // If the carouse is at the beginning, scroll to the end
+    if(carouse.scrollLeft === 0) {
+        carouse.classList.add("no-transition");
+        carouse.scrollLeft = carouse.scrollWidth - (2 * carouse.offsetWidth);
+        carouse.classList.remove("no-transition");
+    }
+    // If the carouse is at the end, scroll to the beginning
+    else if(Math.ceil(carouse.scrollLeft) === carouse.scrollWidth - carouse.offsetWidth) {
+        carouse.classList.add("no-transition");
+        carouse.scrollLeft = carouse.offsetWidth;
+        carouse.classList.remove("no-transition");
+    }
+
+    // Clear existing timeout & start autoplay if mouse is not hovering over carouse
+    clearTimeout(timeoutId);
+    autoPlay();
+}
+
+const autoPlay = () => {
+    if(!isAutoPlay) return; // Return if window is smaller than 800 or isAutoPlay is false
+    // Autoplay the carouse after every 2500 ms
+    timeoutId = setTimeout(() => carouse.scrollLeft += firstcardWidth, 2500);
+}
+autoPlay();
+
+
+carouse.addEventListener("scroll", infiniteScroll);
+wrapper.addEventListener("mouseleave", autoPlay);
+</script>
+
+</body>
+</html>

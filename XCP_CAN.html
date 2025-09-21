@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>IVA Technos</title>
+   <link
+      rel="icon"
+      type="image/webp"
+      href="./images/header/ivalogo.webp"
+      
+    />
+
+   <link href="./output.css" rel="stylesheet" />
+
+     <!-- AOS CSS -->
+    <link href="./js/aos.css" rel="stylesheet" />
+
+    <script src="./js/scroll.js"></script>
+
+    <link href="./custom.css" rel="stylesheet" />
+
+    <script src="./js/tailwindbrowser.js"></script>
+
+
+</head>
+<body class="bg-black">
+
+  <!-- Header -->
+  <header class="absolute fixed md:sticky top-0 left-0 w-full bg-black/30 backdrop-blur-md shadow-md z-50">
+    <div class="flex px-6 py-3 justify-between md:justify-around mx-auto md:px-4 md:py-4">         
+        <a href="#" class="flex flex-shrink-0 items-center">
+         <img src="./images/header/ivalogo.webp" alt="iVA Technos Logo" class="h-15 w-15 md:h-16 md:w-16 lg:h-18 lg:w-18">
+        </a>    
+
+        <nav class="hidden md:flex items-center md:text-sm lg:text-lg text-white xl:ms-20 xl:pl-10">
+          <a href="./index.html" class="whitespace-nowrap hover:text-[#43C400] md:px-4 lg:px-5 xl:px-6">      
+            Home
+          </a>
+          <a href="./About_Us.html" class="whitespace-nowrap hover:text-[#43C400] md:px-4 lg:px-5 xl:px-6">About Us</a>
+          <div class="md:px-4 lg:px-5 xl:px-6 flex items-center">
+            <a href="./Services.html" class="whitespace-nowrap hover:text-[#43C400]">
+              Services
+            </a>
+            <button onclick="toggleServices()" class="group ml-1 flex flex-shrink-0 items-center">
+               <!-- Default chevron -->
+              <img src="./images/header/chevron.webp" class="md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5 block group-hover:hidden">
+              <!-- Green chevron (hover state) -->
+              <img src="./images/header/chevron_green.webp" class="md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5 hidden group-hover:block">
+            </button>
+          </div>
+          <div class="md:px-4 lg:px-5 xl:px-6 flex items-center">
+            <a href="./Products.html" class="relative font-medium whitespace-nowrap w-fit after:content-[''] after:block after:w-6 after:h-[2px] after:bg-[#298000] after:mx-auto">
+              Products
+            </a>
+            <button onclick="toggleProducts()" class="group ml-1 flex flex-shrink-0 items-center">
+               <!-- Default chevron -->
+              <img src="./images/header/chevron.webp" class="md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5 block group-hover:hidden">
+              <!-- Green chevron (hover state) -->
+              <img src="./images/header/chevron_green.webp" class="md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5 hidden group-hover:block">
+            </button>
+          </div>
+          <a href="./Careers.html" class="whitespace-nowrap hover:text-[#43C400] md:px-4 lg:px-5 xl:px-6">Careers</a>
+          <a href="./Contact.html" class="whitespace-nowrap hover:text-[#43C400] md:px-4 lg:px-5 xl:px-6">Contact</a>
+      
+          <a href="call.html" class="md:mr-5 md:ms-2 lg:ms-4 xl:ms-20 xl:pl-10">
+            <button 
+              class="flex items-center justify-center gap-2 bg-[#298000] hover:bg-[#1F6300] text-white rounded-lg font-medium md:px-6 lg:px-7 xl:px-8 py-2 shadow-md">
+              <img src="./images/header/phone.webp" class="md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5">
+              Call   
+            </button>
+          </a>
+      </nav>
+
+      <!-- Mobile Hamburger -->
+      <button id="menu-btn" class="text-white md:hidden text-2xl focus:outline-none">
+        <img src="./images/mobile_view/hamburger.webp" class="h-15 w-15">
+      </button>
+
+    </div>
+
+     <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-black/30  backdrop-blur-lg text-white  border-t border-white/20 px-7 py-4 space-y-3  
+           shadow-lg z-40">
+
+      <a href="./index.html" class="block hover:text-[#43C400]">Home</a>
+      <a href="./About_Us.html" class="block hover:text-[#43C400]">About Us</a>
+
+      <!-- Mobile Services dropdown -->
+      <div>
+          <div class="flex items-center justify-between w-full">
+            <a href="./Services.html" class="relative whitespace-nowrap w-fit">
+              Services
+            </a>
+            <button data-dropdown="mobile-services" class="flex items-center">
+              <!-- Default chevron -->
+            <img src="./images/header/chevron.webp" class="w-5 h-5">     
+            </button>
+          </div>
+        <div id="mobile-services" class="hidden ml-4 mt-2 space-y-2">
+          <a href="./Embedded_System_Application.html" class="pt-1 inline-flex items-center gap-3 block hover:text-[#43C400]">
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded-md bg-white shadow"><img src="./images/header/turn_right.webp" class="w-3 h-3"></span>
+            <span class="font-medium">ESA</span>
+          </a><br/>
+          <a href="./Web_Application.html" class="pt-1 inline-flex items-center gap-3 block hover:text-[#43C400]">
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded-md bg-white shadow"><img src="./images/header/turn_right.webp" class="w-3 h-3"></span>
+            <span class="font-medium">Web Application</span>
+          </a><br/>
+          <a href="./Data_Annotation.html" class="pt-1 inline-flex items-center gap-3 block hover:text-[#43C400]">
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded-md bg-white shadow"><img src="./images/header/turn_right.webp" class="w-3 h-3"></span>
+            <span class="font-medium">Data Annotation</span>
+          </a><br/>
+          <a href="./Industrial_Automation.html" class="pt-1 inline-flex items-center gap-3 block hover:text-[#43C400]">
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded-md bg-white shadow"><img src="./images/header/turn_right.webp" class="w-3 h-3"></span>
+            <span class="font-medium">Industrial Automation</span>
+          </a><br/>
+          <a href="./Ecommerce_Application.html" class="pt-1 inline-flex items-center gap-3 block hover:text-[#43C400]">
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded-md bg-white shadow"><img src="./images/header/turn_right.webp" class="w-3 h-3"></span>
+            <span class="font-medium">E-commerce Application</span>
+          </a><br/>
+          <a href="./Infotainment.html" class="pt-1 inline-flex items-center gap-3 block hover:text-[#43C400]">
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded-md bg-white shadow"><img src="./images/header/turn_right.webp" class="w-3 h-3"></span>
+            <span class="font-medium">Infotainment</span>
+          </a><br/>
+          <a href="./3D_Printing.html" class="pt-1 inline-flex items-center gap-3 block hover:text-[#43C400]">
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded-md bg-white shadow"><img src="./images/header/turn_right.webp" class="w-3 h-3"></span>
+            <span class="font-medium">3D Printing</span>
+          </a><br/>
+           <a href="./Mobile_Application.html" class="pt-1 inline-flex items-center gap-3 block hover:text-[#43C400]">
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded-md bg-white shadow"><img src="./images/header/turn_right.webp" class="w-3 h-3"></span>
+            <span class="font-medium">Mobile Application</span>
+          </a><br/>
+           <a href="./Digital_Cloud_Services.html" class="pt-1 inline-flex items-center gap-3 block hover:text-[#43C400]">
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded-md bg-white shadow"><img src="./images/header/turn_right.webp" class="w-3 h-3"></span>
+            <span class="font-medium">Digital-Cloud Services</span>
+          </a>
+        </div>
+      </div>
+
+       <!-- Mobile Products dropdown -->
+      <div>
+        <div class="flex items-center justify-between w-full">
+            <a href="./Products.html" class="relative font-medium whitespace-nowrap w-fit after:content-[''] after:block after:w-6 after:h-[2px] after:bg-[#298000] after:mx-auto">
+               Products
+            </a>
+            <button data-dropdown="mobile-products" class="flex items-center">
+              <!-- Default chevron -->
+            <img src="./images/header/chevron.webp" class="w-5 h-5">     
+            </button>
+          </div>
+
+         <div id="mobile-products" class="hidden ml-4 mt-2 space-y-2">
+          <a href="./Compressor_Controller.html" class="pt-1 inline-flex items-center gap-3 block hover:text-[#43C400]">
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded-md bg-white shadow"><img src="./images/header/turn_right.webp" class="w-3 h-3"></span>
+            <span class="font-medium">Compressor Controller</span>
+          </a><br/>
+          <a href="./Diagnostic_Scan_Tool.html" class="pt-1 inline-flex items-center gap-3 block hover:text-[#43C400]">
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded-md bg-white shadow"><img src="./images/header/turn_right.webp" class="w-3 h-3"></span>
+            <span class="font-medium">H200 – Diagnostic Scan Tool</span>
+          </a><br/>
+          <a href="./ITV_EGR_Performance_Tester.html" class="pt-1 inline-flex items-center gap-3 block hover:text-[#43C400]">
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded-md bg-white shadow"><img src="./images/header/turn_right.webp" class="w-3 h-3"></span>
+            <span class="font-medium">ITV/EGR Performance Tester</span>
+          </a><br/>
+          <a href="./Vehicle_Speed_Simulator.html" class="pt-1 inline-flex items-center gap-3 block hover:text-[#43C400]">
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded-md bg-white shadow"><img src="./images/header/turn_right.webp" class="w-3 h-3"></span>
+            <span class="font-medium">Vehicle Speed Simulator</span>
+          </a><br/>
+          <a href="./Wireless_Temperature_Logger.html" class="pt-1 inline-flex items-center gap-3 block hover:text-[#43C400]">
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded-md bg-white shadow"><img src="./images/header/turn_right.webp" class="w-3 h-3"></span>
+            <span class="font-medium">Wireless Temperature Logger</span>
+          </a><br/>
+          <a href="./My_Park_Parking_Solution.html" class="pt-1 inline-flex items-center gap-3 block hover:text-[#43C400]">
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded-md bg-white shadow"><img src="./images/header/turn_right.webp" class="w-3 h-3"></span>
+            <span class="font-medium">My Park – Parking Solution</span>
+          </a><br/>
+          <a href="./Lightning_Counter_Tester.html" class="pt-1 inline-flex items-center gap-3 block hover:text-[#43C400]">
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded-md bg-white shadow"><img src="./images/header/turn_right.webp" class="w-3 h-3"></span>
+            <span class="font-medium">Lightning Counter & Tester</span>
+          </a><br/>
+          <a href="./Internet_Radio.html" class="pt-1 inline-flex items-center gap-3 block hover:text-[#43C400]">
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded-md bg-white shadow"><img src="./images/header/turn_right.webp" class="w-3 h-3"></span>
+            <span class="font-medium">Internet Radio</span>
+          </a><br/>
+          <a href="./T4_Test_Rig.html" class="pt-1 inline-flex items-center gap-3 block hover:text-[#43C400]">
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded-md bg-white shadow"><img src="./images/header/turn_right.webp" class="w-3 h-3"></span>
+            <span class="font-medium">T4 – Test Rig</span>
+          </a><br/>
+           <a href="./H200_Wireless_OBD_Dongle.html" class="pt-1 inline-flex items-center gap-3 block hover:text-[#43C400]">
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded-md bg-white shadow"><img src="./images/header/turn_right.webp" class="w-3 h-3"></span>
+            <span class="font-medium">H200 – Wireless OBD Dongle</span>
+          </a><br/>
+           <a href="./HC_Dozer_Test_Rig.html" class="pt-1 inline-flex items-center gap-3 block hover:text-[#43C400]">
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded-md bg-white shadow"><img src="./images/header/turn_right.webp" class="w-3 h-3"></span>
+            <span class="font-medium">HC Dozer Test Rig</span>
+          </a><br/>
+          <a href="./Cable_Test_Rig.html" class="pt-1 inline-flex items-center gap-3 block hover:text-[#43C400]">
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded-md bg-white shadow"><img src="./images/header/turn_right.webp" class="w-3 h-3"></span>
+            <span class="font-medium">Cable Test Rig</span>
+          </a><br/>
+          <a href="./XCP_CAN.html" class="pt-1 inline-flex items-center gap-3 block hover:text-[#43C400]">
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded-md bg-white shadow"><img src="./images/header/turn_right.webp" class="w-3 h-3"></span>
+            <span class="font-medium text-[#43C400]">XCP CAN</span>
+          </a>
+        </div>
+      </div>
+
+      <a href="./Careers.html" class="block hover:text-[#43C400]">Careers</a>
+      <a href="./Contact.html" class="block hover:text-[#43C400]">Contact</a><br/>
+
+      <a href="#">
+        <button class="-mt-2.5 md:mt-0 w-full px-4 py-2 text-white flex items-center justify-center gap-2 bg-[#298000] hover:bg-[#1F6300] text-white rounded-md font-medium shadow-md">
+         <img src="./images/header/phone.webp" class="w-4 h-4"> Call
+        </button>
+      </a>
+
+    </div>
+    
+  </header>
+
+
+  
+  <section id="services-section" 
+    class="backdrop hidden hidden fixed top-22 left-0 w-full bg-black/50 
+           border-t border-white/20 shadow-lg z-40">
+          
+    <div class="max-w-full flex items-start mx-auto md:gap-4 lg:gap-6 xl:gap-6 px-0 py-10">
+       <!-- Left: title -->
+      <div class="grid grid-cols-1 xl:min-w-[100px] md:pl-[28px] lg:pl-[50px] xl:pl-[75px]">
+          <h2 class="md:text-xl lg:text-2xl xl:text-3xl font-bold leading-tight text-white">OUR<br>SERVICES</h2>
+      </div>
+      <div class="grid grid-cols-1 xl:min-w-[200px] md:pl-3 lg:pl-3 xl:pl-6">
+
+      </div>
+
+       <!-- Right: services grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 md:gap-x-4 lg:gap-x-4 xl:gap-x-8 md:gap-y-5 lg:gap-y-10 xl:gap-y-10 flex-1 text-white">
+        
+        <a href="./Embedded_System_Application.html" class="inline-flex items-center gap-3 hover:text-[#43C400]">
+          <span class="inline-flex items-center justify-center md:w-7 md:h-7 lg:w-8 lg:h-8 xl:w-9 xl:h-9 rounded-md bg-white shadow"><img src="./images/header/turn_right.webp" class="md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5"></span>
+          <span class="md:text-base lg:text-lg xl:text-xl font-medium">ESA</span>
+        </a>
+        <a href="./Web_Application.html" class="inline-flex items-center gap-3 hover:text-[#43C400]">
+          <span class="inline-flex items-center justify-center md:w-7 md:h-7 lg:w-8 lg:h-8 xl:w-9 xl:h-9 rounded-md bg-white text-green-700 shadow"><img src="./images/header/turn_right.webp" class="md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5"></span>
+          <span class="md:text-base lg:text-lg xl:text-xl font-medium">Web Application</span>
+        </a>
+        <a href="./Data_Annotation.html" class="inline-flex items-center gap-3 hover:text-[#43C400]">
+          <span class="inline-flex items-center justify-center md:w-7 md:h-7 lg:w-8 lg:h-8 xl:w-9 xl:h-9 rounded-md bg-white text-green-700 shadow"><img src="./images/header/turn_right.webp" class="md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5"></span>
+          <span class="md:text-base lg:text-lg xl:text-xl font-medium">Data Annotation</span>
+        </a>
+        <a href="./Industrial_Automation.html" class="inline-flex items-center gap-3 hover:text-[#43C400]">
+          <span class="inline-flex items-center justify-center md:w-7 md:h-7 lg:w-8 lg:h-8 xl:w-9 xl:h-9 rounded-md bg-white text-green-700 shadow"><img src="./images/header/turn_right.webp" class="md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5"></span>
+          <span class="md:text-base lg:text-lg xl:text-xl font-medium">Industrial Automation</span>
+        </a>
+        <a href="./Ecommerce_Application.html" class="inline-flex items-center gap-3 hover:text-[#43C400]">
+          <span class="inline-flex items-center justify-center md:w-7 md:h-7 lg:w-8 lg:h-8 xl:w-9 xl:h-9 rounded-md bg-white text-green-700 shadow"><img src="./images/header/turn_right.webp" class="md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5"></span>
+          <span class="md:text-base lg:text-lg xl:text-xl font-medium">E-commerce Application</span>
+        </a>
+        <a href="./Infotainment.html" class="inline-flex items-center gap-3 hover:text-[#43C400]">
+          <span class="inline-flex items-center justify-center md:w-7 md:h-7 lg:w-8 lg:h-8 xl:w-9 xl:h-9 rounded-md bg-white text-green-700 shadow"><img src="./images/header/turn_right.webp" class="md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5"></span>
+          <span class="md:text-base lg:text-lg xl:text-xl font-medium">Infotainment</span>
+        </a>
+         <a href="./3D_Printing.html" class="inline-flex items-center gap-3 hover:text-[#43C400]">
+          <span class="inline-flex items-center justify-center md:w-7 md:h-7 lg:w-8 lg:h-8 xl:w-9 xl:h-9 rounded-md bg-white text-green-700 shadow"><img src="./images/header/turn_right.webp" class="md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5"></span>
+          <span class="md:text-base lg:text-lg xl:text-xl font-medium">3D Printing</span>
+        </a>
+        <a href="./Mobile_Application.html" class="inline-flex items-center gap-3 hover:text-[#43C400]">
+          <span class="inline-flex items-center justify-center md:w-7 md:h-7 lg:w-8 lg:h-8 xl:w-9 xl:h-9 rounded-md bg-white text-green-700 shadow"><img src="./images/header/turn_right.webp" class="md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5"></span>
+          <span class="md:text-base lg:text-lg xl:text-xl font-medium">Mobile Application</span>
+        </a>
+        <a href="./Digital_Cloud_Services.html" class="inline-flex items-center gap-3 hover:text-[#43C400]">
+          <span class="inline-flex items-center justify-center md:w-7 md:h-7 lg:w-8 lg:h-8 xl:w-9 xl:h-9 rounded-md bg-white text-green-700 shadow"><img src="./images/header/turn_right.webp" class="md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5"></span>
+          <span class="md:text-base lg:text-lg xl:text-xl font-medium">Digital Cloud-Services</span>
+        </a>
+      </div>
+      <div class="grid grid-cols-1 xl:min-w-[200px] md:pl-3 lg:pl-3 xl:pl-6">
+        
+      </div>
+    </div>
+  </section>
+
+  <section id="products-section" 
+    class="backdrop hidden hidden fixed top-22 left-0 w-full bg-black/50  
+           border-t border-white/20 shadow-lg z-40">
+         
+    <div class="max-w-full flex items-start mx-auto md:gap-4 lg:gap-6 xl:gap-6 px-0 py-10">
+       <!-- Left: title -->       
+      <div class="grid grid-cols-1 xl:min-w-[100px] md:pl-[28px] lg:pl-[50px] xl:pl-[75px]">
+          <h2 class="md:text-xl lg:text-2xl xl:text-3xl font-bold leading-tight text-white">OUR<br>PRODUCTS</h2>
+      </div>
+      <div class="grid grid-cols-1 xl:min-w-[200px] md:pl-3 lg:pl-3 xl:pl-6">
+
+      </div>
+
+       <!-- Right: products grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 md:gap-x-4 lg:gap-x-4 xl:gap-x-8 md:gap-y-5 lg:gap-y-10 xl:gap-y-10 flex-1 text-white">
+        
+        <a href="./Compressor_Controller.html" class="inline-flex items-center gap-3 hover:text-[#43C400]">
+          <span class="inline-flex items-center justify-center md:w-7 md:h-7 lg:w-8 lg:h-8 xl:w-9 xl:h-9 rounded-md bg-white shadow"><img src="./images/header/turn_right.webp" class="md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5"></span>
+          <span class="md:text-base lg:text-lg xl:text-xl font-medium">Compressor Controller</span>
+        </a>
+        <a href="./Diagnostic_Scan_Tool.html" class="inline-flex items-center gap-3 hover:text-[#43C400]">
+          <span class="inline-flex items-center justify-center md:w-7 md:h-7 lg:w-8 lg:h-8 xl:w-9 xl:h-9 rounded-md bg-white text-green-700 shadow"><img src="./images/header/turn_right.webp" class="md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5"></span>
+          <span class="md:text-base lg:text-lg xl:text-xl font-medium">H200 – Diagnostic Scan Tool</span>
+        </a>
+        <a href="./ITV_EGR_Performance_Tester.html" class="inline-flex items-center gap-3 hover:text-[#43C400]">
+          <span class="inline-flex items-center justify-center md:w-7 md:h-7 lg:w-8 lg:h-8 xl:w-9 xl:h-9 rounded-md bg-white text-green-700 shadow"><img src="./images/header/turn_right.webp" class="md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5"></span>
+          <span class="md:text-base lg:text-lg xl:text-xl font-medium">ITV/EGR Performance Tester</span>
+        </a>
+        <a href="./Vehicle_Speed_Simulator.html" class="inline-flex items-center gap-3 hover:text-[#43C400]">
+          <span class="inline-flex items-center justify-center md:w-7 md:h-7 lg:w-8 lg:h-8 xl:w-9 xl:h-9 rounded-md bg-white text-green-700 shadow"><img src="./images/header/turn_right.webp" class="md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5"></span>
+          <span class="md:text-base lg:text-lg xl:text-xl font-medium">Vehicle Speed Simulator</span>
+        </a>
+        <a href="./Wireless_Temperature_Logger.html" class="inline-flex items-center gap-3 hover:text-[#43C400]">
+          <span class="inline-flex items-center justify-center md:w-7 md:h-7 lg:w-8 lg:h-8 xl:w-9 xl:h-9 rounded-md bg-white text-green-700 shadow"><img src="./images/header/turn_right.webp" class="md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5"></span>
+          <span class="md:text-base lg:text-lg xl:text-xl font-medium">Wireless Temperature Logger</span>
+        </a>
+        <a href="./My_Park_Parking_Solution.html" class="inline-flex items-center gap-3 hover:text-[#43C400]">
+          <span class="inline-flex items-center justify-center md:w-7 md:h-7 lg:w-8 lg:h-8 xl:w-9 xl:h-9 rounded-md bg-white text-green-700 shadow"><img src="./images/header/turn_right.webp" class="md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5"></span>
+          <span class="md:text-base lg:text-lg xl:text-xl font-medium">My Park – Parking Solution</span>
+        </a>
+         <a href="./Lightning_Counter_Tester.html" class="inline-flex items-center gap-3 hover:text-[#43C400]">
+          <span class="inline-flex items-center justify-center md:w-7 md:h-7 lg:w-8 lg:h-8 xl:w-9 xl:h-9 rounded-md bg-white text-green-700 shadow"><img src="./images/header/turn_right.webp" class="md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5"></span>
+          <span class="md:text-base lg:text-lg xl:text-xl font-medium">Lightning Counter & Tester</span>
+        </a>
+        <a href="./Internet_Radio.html" class="inline-flex items-center gap-3 hover:text-[#43C400]">
+          <span class="inline-flex items-center justify-center md:w-7 md:h-7 lg:w-8 lg:h-8 xl:w-9 xl:h-9 rounded-md bg-white text-green-700 shadow"><img src="./images/header/turn_right.webp" class="md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5"></span>
+          <span class="md:text-base lg:text-lg xl:text-xl font-medium">Internet Radio</span>
+        </a>
+        <a href="./T4_Test_Rig.html" class="inline-flex items-center gap-3 hover:text-[#43C400]">
+          <span class="inline-flex items-center justify-center md:w-7 md:h-7 lg:w-8 lg:h-8 xl:w-9 xl:h-9 rounded-md bg-white text-green-700 shadow"><img src="./images/header/turn_right.webp" class="md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5"></span>
+          <span class="md:text-base lg:text-lg xl:text-xl font-medium">T4 – Test Rig</span>
+        </a>
+        <a href="./H200_Wireless_OBD_Dongle.html" class="inline-flex items-center gap-3 hover:text-[#43C400]">
+          <span class="inline-flex items-center justify-center md:w-7 md:h-7 lg:w-8 lg:h-8 xl:w-9 xl:h-9 rounded-md bg-white text-green-700 shadow"><img src="./images/header/turn_right.webp" class="md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5"></span>
+          <span class="md:text-base lg:text-lg xl:text-xl font-medium">H200 – Wireless OBD Dongle</span>
+        </a>
+         <a href="./HC_Dozer_Test_Rig.html" class="inline-flex items-center gap-3 hover:text-[#43C400]">
+          <span class="inline-flex items-center justify-center md:w-7 md:h-7 lg:w-8 lg:h-8 xl:w-9 xl:h-9 rounded-md bg-white text-green-700 shadow"><img src="./images/header/turn_right.webp" class="md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5"></span>
+          <span class="md:text-base lg:text-lg xl:text-xl font-medium">HC Dozer Test Rig</span>
+        </a>
+         <a href="./Cable_Test_Rig.html" class="inline-flex items-center gap-3 hover:text-[#43C400]">
+          <span class="inline-flex items-center justify-center md:w-7 md:h-7 lg:w-8 lg:h-8 xl:w-9 xl:h-9 rounded-md bg-white text-green-700 shadow"><img src="./images/header/turn_right.webp" class="md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5"></span>
+          <span class="md:text-base lg:text-lg xl:text-xl font-medium">Cable Test Rig</span>
+        </a>
+         <a href="./XCP_CAN.html" class="inline-flex items-center gap-3 hover:text-[#43C400]">
+          <span class="inline-flex items-center justify-center md:w-7 md:h-7 lg:w-8 lg:h-8 xl:w-9 xl:h-9 rounded-md bg-white text-green-700 shadow"><img src="./images/header/turn_right.webp" class="md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5"></span>
+          <span class="md:text-base lg:text-lg xl:text-xl font-medium text-[#43C400]">XCP CAN</span>
+        </a>
+      </div>
+      <div class="grid grid-cols-1 xl:min-w-[200px] md:pl-3 lg:pl-3 xl:pl-6">
+        
+      </div>
+    </div>
+  </section>
+
+<style>
+  .backdrop {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+</style>
+
+<script>
+   
+    function toggleServices() {
+      const section = document.getElementById("services-section");
+      section.classList.toggle("hidden");
+    }
+  </script>  
+
+  <script>
+   
+    function toggleProducts() {
+      const section = document.getElementById("products-section");
+      section.classList.toggle("hidden");
+    }
+  </script>  
+
+<script>
+  // Mobile menu toggle
+  const menuBtn = document.getElementById("menu-btn");
+  const mobileMenu = document.getElementById("mobile-menu");
+  const desktopServices = document.getElementById("services-section");
+  const desktopProducts = document.getElementById("products-section");
+
+  // Always hide desktop dropdowns when mobile menu is opened
+  menuBtn.addEventListener("click", () => {
+    mobileMenu.classList.toggle("hidden");
+    desktopServices.classList.add("hidden");
+    desktopProducts.classList.add("hidden");
+  });
+
+  // Dropdown toggle (for Services, Products etc.)
+  const dropdownBtns = document.querySelectorAll("[data-dropdown]");
+
+  dropdownBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const dropdownId = btn.getAttribute("data-dropdown");
+      const dropdown = document.getElementById(dropdownId);
+      dropdown.classList.toggle("hidden");
+
+      // If mobile Services or Products dropdown is open → hide desktop ones
+      if ((dropdownId === "mobile-services" || dropdownId === "mobile-products") 
+          && !dropdown.classList.contains("hidden")) {
+        desktopServices.classList.add("hidden");
+        desktopProducts.classList.add("hidden");
+      }
+    });
+  });
+
+  // Extra safety: hide desktop dropdowns on window resize to mobile
+  window.addEventListener("resize", () => {
+    if (window.innerWidth < 768) {
+      desktopServices.classList.add("hidden");
+      desktopProducts.classList.add("hidden");
+    }
+  });
+</script>
+
+  
+    <section class="bg-gradient-to-r from-[#298000]/90 to-[#145214]/90 px-6 md:px-0 lg:px-13 xl:px-20 py-8 md:py-16 mx-auto text-white mt-[88px] md:mt-0">
+  <div class="flex flex-col lg:flex-row items-center md:gap-5 lg:gap-10">
+    
+    <!-- Left Content -->
+    <div class="w-full lg:w-1/2 text-center lg:text-left">
+        <h1 class="text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold mb-4 leading-snug">
+            XCP CAN
+        </h1>
+        <p class="text-sm md:text-base lg:text-lg xl:text-xl mb-6 text-justify max-w-xl mx-auto lg:mx-0">
+            XCP CAN (Universal Measurement and Calibration Protocol over CAN) is a 
+            standardized communication protocol implemented on the 
+            Controller Area Network (CAN) bus, enabling measurement, 
+            calibration, and diagnostic tools to communicate with 
+            Electronic Control Units (ECUs) in automotive and embedded systems.
+
+        </p>
+    </div>
+
+    <!-- Right Image -->
+    <div class="w-full lg:w-1/2 flex justify-center">
+      <div class="bg-white p-3 md:p-4 rounded-2xl shadow-2xl">
+        <div class="h-[120px] md:h-[160px] lg:h-[220px] xl:h-[280px] w-full rounded-lg flex items-center justify-center overflow-hidden">
+          <img src="./images/products/XCP_CAN/XCP_CAN.webp" 
+               alt="XCP CAN" 
+               class="h-full w-auto object-contain">
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<div class="bg-black">
+    <!-- Features -->
+<section class="py-8 md:py-16 px-6 md:px-7 lg:px-12.5 xl:px-20 mx-auto">
+
+    <h2 class="text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold text-center text-white mb-6 md:mb-8 lg:mb-10 xl:mb-12">POWERFUL DIAGNOSTIC FEATURES</h2>
+
+    <!-- Responsive Grid -->
+    <div class="grid gap-4 md:gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      
+      <!-- Card - 1 -->
+      <div class="bg-[#1A1A1A] p-6 rounded-2xl transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_15px_rgba(41,128,0,0.4)]">
+        <div class="w-9 h-9 md:w-10 md:h-10 lg:w-12 lg:h-12 xl:w-14 xl:h-14 bg-white rounded-xl flex items-center justify-center mb-4">
+          <img src="./images/products/XCP_CAN/ecu.webp" alt="Engine Performance Monitoring" class="w-9 md:w-10 lg:w-11 xl:w-12 h-auto">
+        </div>
+        <h3 class="text-base md:text-base lg:text-lg xl:text-xl text-white font-semibold mb-2">Real-Time ECU Monitoring</h3>
+        <p class="text-white text-justify text-sm md:text-sm lg:text-base xl:text-lg">Monitor live ECU data over the CAN network to detect system behavior instantly.</p>
+      </div>
+
+      <!-- Card - 2 -->
+      <div class="bg-[#1A1A1A] p-6 rounded-2xl transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_15px_rgba(41,128,0,0.4)]">
+        <div class="w-9 h-9 md:w-10 md:h-10 lg:w-12 lg:h-12 xl:w-14 xl:h-14 bg-white rounded-xl flex items-center justify-center mb-4">
+          <img src="./images/products/XCP_CAN/contrast_adjustment.webp" alt="Transmission Analysis" class="w-7 md:w-8 lg:w-9 xl:w-10 h-auto">
+        </div>
+        <h3 class="text-base md:text-base lg:text-lg xl:text-xl text-white font-semibold mb-2">Calibration & Parameter Adjustment</h3>
+        <p class="text-white text-justify text-sm md:text-sm lg:text-base xl:text-lg">Modify ECU parameters in real time to optimize engine performance and efficiency.</p>
+      </div>
+
+      <!-- Card - 3 -->
+      <div class="bg-[#1A1A1A] p-6 rounded-2xl transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_15px_rgba(41,128,0,0.4)]">
+        <div class="w-9 h-9 md:w-10 md:h-10 lg:w-12 lg:h-12 xl:w-14 xl:h-14 bg-white rounded-xl flex items-center justify-center mb-4">
+          <img src="./images/products/XCP_CAN/fault_tolerant_design.webp" alt="Temperature & Vibration Monitoring" class="w-7 md:w-8 lg:w-9 xl:w-10 h-auto">
+        </div>
+        <h3 class="text-base md:text-base lg:text-lg xl:text-xl text-white font-semibold mb-2">Fault Detection & Error Logging</h3>
+        <p class="text-white text-justify text-sm md:text-sm lg:text-base xl:text-lg">Detect CAN bus errors and log ECU fault codes for precise troubleshooting.</p>
+      </div>
+
+      <!-- Card - 4 -->
+      <div class="bg-[#1A1A1A] p-6 rounded-2xl transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_15px_rgba(41,128,0,0.4)]">
+        <div class="w-9 h-9 md:w-10 md:h-10 lg:w-12 lg:h-12 xl:w-14 xl:h-14 bg-white rounded-xl flex items-center justify-center mb-4">
+          <img src="./images/products/XCP_CAN/database.webp" alt="Fuel Consumption Analysis" class="w-7 md:w-8 lg:w-9 xl:w-10 h-auto">
+        </div>
+        <h3 class="text-base md:text-base lg:text-lg xl:text-xl text-white font-semibold mb-2">Data Acquisition & Analysis</h3>
+        <p class="text-white text-justify text-sm md:text-sm lg:text-base xl:text-lg">Capture and analyze high-speed CAN data streams to evaluate system performance.</p>
+      </div>
+
+      <!-- Card - 5 -->
+      <div class="bg-[#1A1A1A] p-6 rounded-2xl transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_15px_rgba(41,128,0,0.4)]">
+        <div class="w-9 h-9 md:w-10 md:h-10 lg:w-12 lg:h-12 xl:w-14 xl:h-14 bg-white rounded-xl flex items-center justify-center mb-4">
+          <img src="./images/products/XCP_CAN/antenna.webp" alt="Data Logging & Analytics" class="w-8 md:w-9 lg:w-11 xl:w-12 h-auto">
+        </div>
+        <h3 class="text-base md:text-base lg:text-lg xl:text-xl text-white font-semibold mb-2">Signal Logging & Playback</h3>
+        <p class="text-white text-justify text-sm md:text-sm lg:text-base xl:text-lg">Record CAN signals and replay them to test ECU reactions under controlled conditions.</p>
+      </div>
+
+      <!-- Card - 6 -->
+      <div class="bg-[#1A1A1A] p-6 rounded-2xl transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_15px_rgba(41,128,0,0.4)]">
+        <div class="w-9 h-9 md:w-10 md:h-10 lg:w-12 lg:h-12 xl:w-14 xl:h-14 bg-white rounded-xl flex items-center justify-center mb-4">
+          <img src="./images/products/XCP_CAN/anywhere.webp" alt="Control & Remote Monitoring" class="w-7 md:w-8 lg:w-9 xl:w-10 h-auto">
+        </div>
+        <h3 class="text-base md:text-base lg:text-lg xl:text-xl text-white font-semibold mb-2">Remote ECU Access</h3>
+        <p class="text-white text-justify text-sm md:text-sm lg:text-base xl:text-lg">Access and monitor ECU parameters remotely via XCP CAN for diagnostics and testing.</p>
+      </div>
+    </div>
+  
+</section>
+
+
+
+    <!-- Specifications -->
+<section class="px-6 md:px-7 lg:px-12.5 xl:px-20 py-1 md:py-6 text-white mx-auto pb-10 md:pb-12">
+  
+    <h2 class="text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold text-center mb-6 md:mb-12">TECHNICAL SPECIFICATIONS</h2>
+
+    <!-- Table (visible on md and larger screens) -->
+    <div class="hidden md:block rounded-xl shadow-md overflow-hidden">
+      <div class="overflow-x-auto">
+        <table class="w-full min-w-[600px]">
+          <thead class="bg-[#298000] md:text-base lg:text-lg xl:text-xl text-white">
+            <tr>
+                <th class="text-left py-4 px-6">FEATURES</th>
+                <th class="text-left py-4 px-6">SCOPE</th>
+                <th class="text-left py-4 px-6">SPECIFICATIONS</th>
+            </tr>
+            </thead>
+            <tbody class="divide-y divide-white/20 md:text-sm lg:text-base xl:text-lg">
+              <tr>
+            <td class="py-4 px-6 font-medium">Automatic ECU Selection</td>
+            <td class="py-4 px-6">Part number based ECU identification</td>
+            <td class="py-4 px-6">Application automatically enables ECU selection when part number is fed</td>
+          </tr>
+          <tr>
+            <td class="py-4 px-6 font-medium">Flashing & End of Line Test</td>
+            <td class="py-4 px-6">Production setup</td>
+            <td class="py-4 px-6">Designed for ECU flashing and End of Line (EOL) testing in manufacturing</td>
+          </tr>
+          <tr>
+            <td class="py-4 px-6 font-medium">PDF Test Reports</td>
+            <td class="py-4 px-6">Test documentation</td>
+            <td class="py-4 px-6">Stores results in PDF format with real-time date and timestamp</td>
+          </tr>
+          <tr>
+            <td class="py-4 px-6 font-medium">Wireless Connectivity</td>
+            <td class="py-4 px-6">Remote operation</td>
+            <td class="py-4 px-6">Supports wireless communication between XCP CAN and system application</td>
+          </tr>
+          <tr>
+            <td class="py-4 px-6 font-medium">CAN Protocol Communication</td>
+            <td class="py-4 px-6">ECU data exchange</td>
+            <td class="py-4 px-6">ECU communication handled via standard CAN protocol</td>
+          </tr>
+          <tr>
+            <td class="py-4 px-6 font-medium">Wide Power Supply Range</td>
+            <td class="py-4 px-6">Flexible system compatibility</td>
+            <td class="py-4 px-6">Operates with power input range of 10V – 32V</td>
+          </tr>
+          <tr>
+            <td class="py-4 px-6 font-medium">Parameter Monitoring</td>
+            <td class="py-4 px-6">System diagnostics</td>
+            <td class="py-4 px-6">Displays Voltage, Air Pressure Sensor, Urea Pressure Sensor voltage, Ambient Temperature, Air valve voltage, and Pump connection</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Modern Mobile Card Layout -->
+    <div class="space-y-4 md:hidden">
+      <!-- Card -->
+      <div class="relative bg-[#1A1A1A] 
+                  border border-white/10 rounded-xl shadow-md p-5">
+        <div class="flex items-center gap-3 mb-3">
+          <div class="w-9 h-9 bg-white rounded-xl flex items-center justify-center">
+          <img src="./images/products/XCP_CAN/recovery.webp" alt="In-Car Entertainment & Navigation" class="w-7 h-auto">
+          </div>
+          
+          <h3 class="font-bold text-base">Automatic ECU Selection</h3>
+        </div>
+        <p class="text-sm text-justify pt-2"><span class="font-semibold text-white">Scope: </span>Part number based ECU identification</p>
+        <p class="text-sm text-justify pt-2"><span class="font-semibold text-white">Specifications: </span>Application automatically enables ECU selection when part number is fed</p>
+      </div>
+
+      <!-- Repeat for each spec -->
+      <div class="relative bg-[#1A1A1A] 
+                  border border-white/10 rounded-xl shadow-md p-5">
+        <div class="flex items-center gap-3 mb-3">
+           <div class="w-9 h-9 bg-white rounded-xl flex items-center justify-center">
+            <img src="./images/products/XCP_CAN/thunder.webp" alt="Video Recording Support" class="w-8 h-auto">
+          </div>
+          <h3 class="font-bold text-base">Flashing & End of Line Test</h3>
+        </div>
+        <p class="text-sm text-justify text-white pt-2"><span class="font-semibold text-white">Scope: </span>Production setup</p>
+        <p class="text-sm text-justify text-white pt-2"><span class="font-semibold text-white">Specifications: </span>Designed for ECU flashing and End of Line (EOL) testing in manufacturing</p>
+      </div>
+
+       <div class="relative bg-[#1A1A1A] 
+                  border border-white/10 rounded-xl shadow-md p-5">
+        <div class="flex items-center gap-3 mb-3">
+           <div class="w-9 h-9 bg-white rounded-xl flex items-center justify-center">
+            <img src="./images/products/XCP_CAN/pdf_file.webp" alt="Remote Device Control" class="w-8 h-auto">
+          </div>
+          <h3 class="font-bold text-base">PDF Test Reports</h3>
+        </div>
+        <p class="text-sm text-justify text-white pt-2"><span class="font-semibold text-white">Scope: </span>Test documentation</p>
+        <p class="text-sm text-justify text-white pt-2"><span class="font-semibold text-white">Specifications: </span> Stores results in PDF format with real-time date and timestamp</p>
+      </div>
+
+      <div class="relative bg-[#1A1A1A] 
+                  border border-white/10 rounded-xl shadow-md p-5">
+        <div class="flex items-center gap-3 mb-3">
+          <div class="w-9 h-9 bg-white rounded-xl flex items-center justify-center">
+            <img src="./images/products/XCP_CAN/wifi.webp" alt="Home Automation Integration" class="w-7 h-auto">
+          </div>
+          <h3 class="font-bold text-base">Wireless Connectivity</h3>
+        </div>
+        <p class="text-sm text-justify text-white pt-2"><span class="font-semibold text-white">Scope:</span> Remote operation</p>
+        <p class="text-sm text-justify text-white pt-2"><span class="font-semibold text-white">Specifications:</span> Supports wireless communication between XCP CAN and system application</p>
+      </div>
+
+      <div class="relative bg-[#1A1A1A] 
+                  border border-white/10 rounded-xl shadow-md p-5">
+        <div class="flex items-center gap-3 mb-3">
+          <div class="w-9 h-9 bg-white rounded-xl flex items-center justify-center">
+            <img src="./images/products/XCP_CAN/protocol.webp" alt="Home Automation Integration" class="w-7 h-auto">
+          </div>
+          <h3 class="font-bold text-base">CAN Protocol Communication</h3>
+        </div>
+        <p class="text-sm text-justify text-white pt-2"><span class="font-semibold text-white">Scope:</span> ECU data exchange</p>
+        <p class="text-sm text-justify text-white pt-2"><span class="font-semibold text-white">Specifications:</span>  ECU communication handled via standard CAN protocol</p>
+      </div>
+
+       <div class="relative bg-[#1A1A1A] 
+                  border border-white/10 rounded-xl shadow-md p-5">
+        <div class="flex items-center gap-3 mb-3">
+          <div class="w-9 h-9 bg-white rounded-xl flex items-center justify-center">
+            <img src="./images/products/XCP_CAN/power.webp" alt="Home Automation Integration" class="w-7 h-auto">
+          </div>
+          <h3 class="font-bold text-base">Wide Power Supply Range</h3>
+        </div>
+        <p class="text-sm text-justify text-white pt-2"><span class="font-semibold text-white">Scope:</span> Flexible system compatibility</p>
+        <p class="text-sm text-justify text-white pt-2"><span class="font-semibold text-white">Specifications:</span> Operates with power input range of 10V – 32V</p>
+      </div>
+
+      <div class="relative bg-[#1A1A1A] 
+                  border border-white/10 rounded-xl shadow-md p-5">
+        <div class="flex items-center gap-3 mb-3">
+          <div class="w-9 h-9 bg-white rounded-xl flex items-center justify-center">
+            <img src="./images/products/XCP_CAN/monitor.webp" alt="Home Automation Integration" class="w-7 h-auto">
+          </div>
+          <h3 class="font-bold text-base">Parameter Monitoring</h3>
+        </div>
+        <p class="text-sm text-justify text-white pt-2"><span class="font-semibold text-white">Scope:</span> System diagnostics</p>
+        <p class="text-sm text-justify text-white pt-2"><span class="font-semibold text-white">Specifications:</span> Displays Voltage, Air Pressure Sensor, Urea Pressure Sensor voltage, Ambient Temperature, Air valve voltage, and Pump connection</p>
+      </div>
+   
+    </div>
+  
+</section>
+</div>
+
+<div class="border-t border-[#6B6B6B]"></div>
+
+<!-- FOOTER -->
+<footer class="bg-black text-[#6B6B6B] pt-4 pb-8 md:pt-10 md:pb-6 lg:pt-10 lg:pb-6">
+  <div class="mx-auto px-7.5 md:px-6 lg:px-11.5 xl:px-18 justify-between grid grid-cols-2 sm:grid-cols-2 md:grid-cols-6 lg:grid-cols-6 md:gap-0 lg:gap-8">
+    
+    
+    <div class="mx-[-5px] md:mx-auto pb-4 md:pb-0">
+      <h2 class="flex items-center gap-2 text-xl md:text-2xl lg:text-3xl font-bold">
+        <img src="./images/header/ivalogo.webp" alt="iVA Technos Logo" class="h-14 w-14 md:h-15 md:w-15 lg:h-16 lg:w-16">
+        <span class="text-[#D1A57B]">TECHNOS</span>
+      </h2>
+    </div>
+    <div></div>
+    <div class="md:ml-[-30px]">
+      <h3 class="text-base md:text-lg lg:text-xl text-white font-semibold mb-4">Company</h3>
+      <ul class="space-y-2 md:space-y-3">
+        <li><a href="./About_Us.html" class="text-xs md:text-sm lg:text-base hover:text-[#858585]">About US</a></li>
+        <li><a href="./Services.html" onclick="toggleServices()" class="text-xs md:text-sm lg:text-base hover:text-[#858585]">Services</a></li>
+        <li><a href="./Products.html" class="text-xs md:text-sm lg:text-base hover:text-[#858585]">Products</a></li>
+      </ul>
+    </div>
+
+   
+    <div class="md:ml-[-30px]">
+      <h3 class="text-base md:text-lg lg:text-xl text-white font-semibold mb-4">Social</h3>
+      <ul class="space-y-2 md:space-y-3">
+        <li><a href="#" class="text-xs md:text-sm lg:text-base hover:text-[#858585]">Instagram</a></li>
+        <li><a href="#" class="text-xs md:text-sm lg:text-base hover:text-[#858585]">LinkedIn</a></li>
+        <li><a href="#" class="text-xs md:text-sm lg:text-base hover:text-[#858585]">Twitter</a></li>
+      </ul>
+    </div>
+
+  
+    <div class="pt-6 md:pt-0 md:ml-[-40px]">
+      <h3 class="text-base md:text-lg lg:text-xl text-white font-semibold mb-4">Legal</h3>
+      <ul class="space-y-2 md:space-y-3">
+        <li><a href="#" class="text-xs md:text-sm lg:text-base hover:text-[#858585]">Privacy Policy</a></li>
+        <li><a href="#" class="text-xs md:text-sm lg:text-base hover:text-[#858585]">Terms & Conditions</a></li>
+      </ul>
+    </div>
+
+    
+    <div class="pt-6 md:pt-0 md:ml-[-10px]">
+      <h3 class="text-base md:text-lg lg:text-xl text-white font-semibold mb-4">Contact</h3>
+      <ul class="space-y-2 md:space-y-3">
+        <li><a href="mailto:info@ivatechnos.com" class="text-xs md:text-sm lg:text-base hover:text-[#858585]">info@ivatechnos.com</a></li>
+        <li><a href="tel:+911234567890" class="text-xs md:text-sm lg:text-base hover:text-[#858585]">+91 12345 67890</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  
+  <div class="mx-auto px-7 md:px-7 lg:px-11 xl:px-19 mt-10">
+    <p class="text-xs md:text-sm text-gray-500">@ 2025 by IVA TECHNOS</p>
+  </div>
+</footer>
+
+ 
+</body>
+</html>

@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IVA Technos</title>
+   <link
+      rel="icon"
+      type="image/webp"
+      href="./images/header/ivalogo.webp"
+      
+    />
+    <link href="./output.css" rel="stylesheet" />
+
+     <!-- AOS CSS -->
+    <link href="./js/aos.css" rel="stylesheet" />
+
+    <script src="./js/scroll.js"></script>
+
+    <link href="./custom.css" rel="stylesheet" />
+
+    <script src="./js/tailwindbrowser.js"></script>
+    <!-- Typed.js for typing effect -->
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
+   
+<style>
+    /* Canvas full background */
+    #bgCanvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: radial-gradient(circle at center, #0a0a0a, #000);
+    }
+</style>
+
+</head>
+<body class="font-sans bg-[#fdfaf5] scroll-smooth">
+
+  <!-- Header -->
+  <header class="absolute fixed top-0 left-0 w-full bg-black/30 backdrop-blur-md shadow-md z-50">
+    <div class="flex px-6 py-3 justify-between md:justify-around mx-auto md:px-4 md:py-4">         
+        <a href="#" class="flex flex-shrink-0 items-center">
+         <img src="./images/header/ivalogo.webp" alt="iVA Technos Logo" class="h-15 w-15 md:h-16 md:w-16 lg:h-18 lg:w-18">
+        </a>    
+
+        <nav class="hidden md:flex items-center md:text-sm lg:text-lg text-white xl:ms-20 xl:pl-10">
+          <a href="./index.html" class="relative font-medium whitespace-nowrap w-fit after:content-[''] after:block after:w-6 after:h-[2px] after:bg-[#298000] after:mx-auto md:px-4 lg:px-5 xl:px-6">      
+            Home
+          </a>
+          <a href="./About_Us.html" class="whitespace-nowrap hover:text-[#43C400] md:px-4 lg:px-5 xl:px-6">About Us</a>
+          <div class="md:px-4 lg:px-5 xl:px-6 flex items-center">
+            <a href="./Services.html" class="whitespace-nowrap hover:text-[#43C400]">
+              Services
+            </a>
+            <button onclick="toggleServices()" class="group ml-1 flex flex-shrink-0 items-center">
+               <!-- Default chevron -->
+              <img src="./images/header/chevron.webp" class="md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5 block group-hover:hidden">
+              <!-- Green chevron (hover state) -->
+              <img src="./images/header/chevron_green.webp" class="md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5 hidden group-hover:block">
+            </button>
+          </div>
+          <div class="md:px-4 lg:px-5 xl:px-6 flex items-center">
+            <a href="./Products.html" class="whitespace-nowrap hover:text-[#43C400]">
+              Products
+            </a>
+            <button onclick="toggleProducts()" class="group ml-1 flex flex-shrink-0 items-center">
+               <!-- Default chevron -->
+              <img src="./images/header/chevron.webp" class="md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5 block group-hover:hidden">
+              <!-- Green chevron (hover state) -->
+              <img src="./images/header/chevron_green.webp" class="md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5 hidden group-hover:block">
+            </button>
+          </div>
+          <a href="./Careers.html" class="whitespace-nowrap hover:text-[#43C400] md:px-4 lg:px-5 xl:px-6">Careers</a>
+          <a href="./Contact.html" class="whitespace-nowrap hover:text-[#43C400] md:px-4 lg:px-5 xl:px-6">Contact</a>
+      
+          <a href="call.html" class="md:mr-5 md:ms-2 lg:ms-4 xl:ms-20 xl:pl-10">
+            <button 
+              class="flex items-center justify-center gap-2 bg-[#298000] hover:bg-[#1F6300] text-white rounded-lg font-medium md:px-6 lg:px-7 xl:px-8 py-2 shadow-md">
+              <img src="./images/header/phone.webp" class="md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5">
+              Call   
+            </button>
+          </a>
+      </nav>
+
+      <!-- Mobile Hamburger -->
+      <button id="menu-btn" class="text-white md:hidden text-2xl focus:outline-none">
+        <img src="./images/mobile_view/hamburger.webp" class="h-15 w-15">
+      </button>
+
+    </div>
+
+     <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-black/30  backdrop-blur-lg text-white  border-t border-white/20 px-7 py-4 space-y-3  
+           shadow-lg z-40">
+
+      <a href="./index.html"  class="relative inline-block font-medium whitespace-nowrap w-fit 
+          after:content-[''] after:absolute after:left-1/2 after:bottom-0 
+          after:-translate-x-1/2 after:w-6 after:h-[2px] after:bg-[#298000]">Home</a>
+      <a href="./About_Us.html" class="block hover:text-[#43C400]">About Us</a>
+
+      <!-- Mobile Services dropdown -->
+      <div>
+          <div class="flex items-center justify-between w-full">
+            <a href="./Services.html" class="relative whitespace-nowrap w-fit">
+              Services
+            </a>
+            <button data-dropdown="mobile-services" class="flex items-center">
+              <!-- Default chevron -->
+            <img src="./images/header/chevron.webp" class="w-5 h-5">     
+            </button>
+          </div>
+        <div id="mobile-services" class="hidden ml-4 mt-2 space-y-2">
+          <a href="./Embedded_System_Application.html" class="pt-1 inline-flex items-center gap-3 block hover:text-[#43C400]">
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded-md bg-white shadow"><img src="./images/header/turn_right.webp" class="w-3 h-3"></span>
+            <span class="font-medium">ESA</span>
+          </a><br/>
+          <a href="./Web_Application.html" class="pt-1 inline-flex items-center gap-3 block hover:text-[#43C400]">
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded-md bg-white shadow"><img src="./images/header/turn_right.webp" class="w-3 h-3"></span>
+            <span class="font-medium">Web Application</span>
+          </a><br/>
+          <a href="./Data_Annotation.html" class="pt-1 inline-flex items-center gap-3 block hover:text-[#43C400]">
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded-md bg-white shadow"><img src="./images/header/turn_right.webp" class="w-3 h-3"></span>
+            <span class="font-medium">Data Annotation</span>
+          </a><br/>
+          <a href="./Industrial_Automation.html" class="pt-1 inline-flex items-center gap-3 block hover:text-[#43C400]">
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded-md bg-white shadow"><img src="./images/header/turn_right.webp" class="w-3 h-3"></span>
+            <span class="font-medium">Industrial Automation</span>
+          </a><br/>
+          <a href="./Ecommerce_Application.html" class="pt-1 inline-flex items-center gap-3 block hover:text-[#43C400]">
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded-md bg-white shadow"><img src="./images/header/turn_right.webp" class="w-3 h-3"></span>
+            <span class="font-medium">E-commerce Application</span>
+          </a><br/>
+          <a href="./Infotainment.html" class="pt-1 inline-flex items-center gap-3 block hover:text-[#43C400]">
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded-md bg-white shadow"><img src="./images/header/turn_right.webp" class="w-3 h-3"></span>
+            <span class="font-medium">Infotainment</span>
+          </a><br/>
+          <a href="./3D_Printing.html" class="pt-1 inline-flex items-center gap-3 block hover:text-[#43C400]">
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded-md bg-white shadow"><img src="./images/header/turn_right.webp" class="w-3 h-3"></span>
+            <span class="font-medium">3D Printing</span>
+          </a><br/>
+           <a href="./Mobile_Application.html" class="pt-1 inline-flex items-center gap-3 block hover:text-[#43C400]">
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded-md bg-white shadow"><img src="./images/header/turn_right.webp" class="w-3 h-3"></span>
+            <span class="font-medium">Mobile Application</span>
+          </a><br/>
+           <a href="./Digital_Cloud_Services.html" class="pt-1 inline-flex items-center gap-3 block hover:text-[#43C400]">
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded-md bg-white shadow"><img src="./images/header/turn_right.webp" class="w-3 h-3"></span>
+            <span class="font-medium">Digital-Cloud Services</span>
+          </a>
+        </div>
+      </div>
+
+       <!-- Mobile Products dropdown -->
+      <div>
+        <div class="flex items-center justify-between w-full">
+            <a href="./Products.html" class="relative whitespace-nowrap w-fit">
+               Products
+            </a>
+            <button data-dropdown="mobile-products" class="flex items-center">
+              <!-- Default chevron -->
+            <img src="./images/header/chevron.webp" class="w-5 h-5">     
+            </button>
+          </div>
+
+         <div id="mobile-products" class="hidden ml-4 mt-2 space-y-2">
+          <a href="./Compressor_Controller.html" class="pt-1 inline-flex items-center gap-3 block hover:text-[#43C400]">
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded-md bg-white shadow"><img src="./images/header/turn_right.webp" class="w-3 h-3"></span>
+            <span class="font-medium">Compressor Controller</span>
+          </a><br/>
+          <a href="./Diagnostic_Scan_Tool.html" class="pt-1 inline-flex items-center gap-3 block hover:text-[#43C400]">
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded-md bg-white shadow"><img src="./images/header/turn_right.webp" class="w-3 h-3"></span>
+            <span class="font-medium">H200 – Diagnostic Scan Tool</span>
+          </a><br/>
+          <a href="./ITV_EGR_Performance_Tester.html" class="pt-1 inline-flex items-center gap-3 block hover:text-[#43C400]">
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded-md bg-white shadow"><img src="./images/header/turn_right.webp" class="w-3 h-3"></span>
+            <span class="font-medium">ITV/EGR Performance Tester</span>
+          </a><br/>
+          <a href="./Vehicle_Speed_Simulator.html" class="pt-1 inline-flex items-center gap-3 block hover:text-[#43C400]">
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded-md bg-white shadow"><img src="./images/header/turn_right.webp" class="w-3 h-3"></span>
+            <span class="font-medium">Vehicle Speed Simulator</span>
+          </a><br/>
+          <a href="./Wireless_Temperature_Logger.html" class="pt-1 inline-flex items-center gap-3 block hover:text-[#43C400]">
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded-md bg-white shadow"><img src="./images/header/turn_right.webp" class="w-3 h-3"></span>
+            <span class="font-medium">Wireless Temperature Logger</span>
+          </a><br/>
+          <a href="./My_Park_Parking_Solution.html" class="pt-1 inline-flex items-center gap-3 block hover:text-[#43C400]">
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded-md bg-white shadow"><img src="./images/header/turn_right.webp" class="w-3 h-3"></span>
+            <span class="font-medium">My Park – Parking Solution</span>
+          </a><br/>
+          <a href="./Lightning_Counter_Tester.html" class="pt-1 inline-flex items-center gap-3 block hover:text-[#43C400]">
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded-md bg-white shadow"><img src="./images/header/turn_right.webp" class="w-3 h-3"></span>
+            <span class="font-medium">Lightning Counter & Tester</span>
+          </a><br/>
+          <a href="./Internet_Radio.html" class="pt-1 inline-flex items-center gap-3 block hover:text-[#43C400]">
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded-md bg-white shadow"><img src="./images/header/turn_right.webp" class="w-3 h-3"></span>
+            <span class="font-medium">Internet Radio</span>
+          </a><br/>
+          <a href="./T4_Test_Rig.html" class="pt-1 inline-flex items-center gap-3 block hover:text-[#43C400]">
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded-md bg-white shadow"><img src="./images/header/turn_right.webp" class="w-3 h-3"></span>
+            <span class="font-medium">T4 – Test Rig</span>
+          </a><br/>
+           <a href="./H200_Wireless_OBD_Dongle.html" class="pt-1 inline-flex items-center gap-3 block hover:text-[#43C400]">
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded-md bg-white shadow"><img src="./images/header/turn_right.webp" class="w-3 h-3"></span>
+            <span class="font-medium">H200 – Wireless OBD Dongle</span>
+          </a><br/>
+           <a href="./HC_Dozer_Test_Rig.html" class="pt-1 inline-flex items-center gap-3 block hover:text-[#43C400]">
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded-md bg-white shadow"><img src="./images/header/turn_right.webp" class="w-3 h-3"></span>
+            <span class="font-medium">HC Dozer Test Rig</span>
+          </a><br/>
+          <a href="./Cable_Test_Rig.html" class="pt-1 inline-flex items-center gap-3 block hover:text-[#43C400]">
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded-md bg-white shadow"><img src="./images/header/turn_right.webp" class="w-3 h-3"></span>
+            <span class="font-medium">Cable Test Rig</span>
+          </a><br/>
+          <a href="./XCP_CAN.html" class="pt-1 inline-flex items-center gap-3 block hover:text-[#43C400]">
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded-md bg-white shadow"><img src="./images/header/turn_right.webp" class="w-3 h-3"></span>
+            <span class="font-medium">XCP CAN</span>
+          </a>
+        </div>
+      </div>
+
+      <a href="./Careers.html" class="block hover:text-[#43C400]">Careers</a>
+      <a href="./Contact.html" class="block hover:text-[#43C400]">Contact</a><br/>
+
+      <a href="#">
+        <button class="-mt-2 md:mt-0 w-full px-4 py-2 text-white flex items-center justify-center gap-2 bg-[#298000] hover:bg-[#1F6300] text-white rounded-md font-medium shadow-md">
+         <img src="./images/header/phone.webp" class="w-4 h-4"> Call
+        </button>
+      </a>
+
+    </div>
+    
+  </header>
+
+
+  
+  <section id="services-section" 
+    class="backdrop hidden hidden fixed top-22 left-0 w-full bg-black/50 
+           border-t border-white/20 shadow-lg z-40">
+          
+    <div class="max-w-full flex items-start mx-auto md:gap-4 lg:gap-6 xl:gap-6 px-0 py-10">
+       <!-- Left: title -->
+      <div class="grid grid-cols-1 xl:min-w-[100px] md:pl-[28px] lg:pl-[50px] xl:pl-[75px]">
+          <h2 class="md:text-xl lg:text-2xl xl:text-3xl font-bold leading-tight text-white">OUR<br>SERVICES</h2>
+      </div>
+      <div class="grid grid-cols-1 xl:min-w-[200px] md:pl-3 lg:pl-3 xl:pl-6">
+
+      </div>
+
+       <!-- Right: services grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 md:gap-x-4 lg:gap-x-4 xl:gap-x-8 md:gap-y-5 lg:gap-y-10 xl:gap-y-10 flex-1 text-white">
+        
+        <a href="./Embedded_System_Application.html" class="inline-flex items-center gap-3 hover:text-[#43C400]">
+          <span class="inline-flex items-center justify-center md:w-7 md:h-7 lg:w-8 lg:h-8 xl:w-9 xl:h-9 rounded-md bg-white shadow"><img src="./images/header/turn_right.webp" class="md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5"></span>
+          <span class="md:text-base lg:text-lg xl:text-xl font-medium">ESA</span>
+        </a>
+        <a href="./Web_Application.html" class="inline-flex items-center gap-3 hover:text-[#43C400]">
+          <span class="inline-flex items-center justify-center md:w-7 md:h-7 lg:w-8 lg:h-8 xl:w-9 xl:h-9 rounded-md bg-white text-green-700 shadow"><img src="./images/header/turn_right.webp" class="md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5"></span>
+          <span class="md:text-base lg:text-lg xl:text-xl font-medium">Web Application</span>
+        </a>
+        <a href="./Data_Annotation.html" class="inline-flex items-center gap-3 hover:text-[#43C400]">
+          <span class="inline-flex items-center justify-center md:w-7 md:h-7 lg:w-8 lg:h-8 xl:w-9 xl:h-9 rounded-md bg-white text-green-700 shadow"><img src="./images/header/turn_right.webp" class="md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5"></span>
+          <span class="md:text-base lg:text-lg xl:text-xl font-medium">Data Annotation</span>
+        </a>
+        <a href="./Industrial_Automation.html" class="inline-flex items-center gap-3 hover:text-[#43C400]">
+          <span class="inline-flex items-center justify-center md:w-7 md:h-7 lg:w-8 lg:h-8 xl:w-9 xl:h-9 rounded-md bg-white text-green-700 shadow"><img src="./images/header/turn_right.webp" class="md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5"></span>
+          <span class="md:text-base lg:text-lg xl:text-xl font-medium">Industrial Automation</span>
+        </a>
+        <a href="./Ecommerce_Application.html" class="inline-flex items-center gap-3 hover:text-[#43C400]">
+          <span class="inline-flex items-center justify-center md:w-7 md:h-7 lg:w-8 lg:h-8 xl:w-9 xl:h-9 rounded-md bg-white text-green-700 shadow"><img src="./images/header/turn_right.webp" class="md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5"></span>
+          <span class="md:text-base lg:text-lg xl:text-xl font-medium">E-commerce Application</span>
+        </a>
+        <a href="./Infotainment.html" class="inline-flex items-center gap-3 hover:text-[#43C400]">
+          <span class="inline-flex items-center justify-center md:w-7 md:h-7 lg:w-8 lg:h-8 xl:w-9 xl:h-9 rounded-md bg-white text-green-700 shadow"><img src="./images/header/turn_right.webp" class="md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5"></span>
+          <span class="md:text-base lg:text-lg xl:text-xl font-medium">Infotainment</span>
+        </a>
+         <a href="./3D_Printing.html" class="inline-flex items-center gap-3 hover:text-[#43C400]">
+          <span class="inline-flex items-center justify-center md:w-7 md:h-7 lg:w-8 lg:h-8 xl:w-9 xl:h-9 rounded-md bg-white text-green-700 shadow"><img src="./images/header/turn_right.webp" class="md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5"></span>
+          <span class="md:text-base lg:text-lg xl:text-xl font-medium">3D Printing</span>
+        </a>
+        <a href="./Mobile_Application.html" class="inline-flex items-center gap-3 hover:text-[#43C400]">
+          <span class="inline-flex items-center justify-center md:w-7 md:h-7 lg:w-8 lg:h-8 xl:w-9 xl:h-9 rounded-md bg-white text-green-700 shadow"><img src="./images/header/turn_right.webp" class="md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5"></span>
+          <span class="md:text-base lg:text-lg xl:text-xl font-medium">Mobile Application</span>
+        </a>
+        <a href="./Digital_Cloud_Services.html" class="inline-flex items-center gap-3 hover:text-[#43C400]">
+          <span class="inline-flex items-center justify-center md:w-7 md:h-7 lg:w-8 lg:h-8 xl:w-9 xl:h-9 rounded-md bg-white text-green-700 shadow"><img src="./images/header/turn_right.webp" class="md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5"></span>
+          <span class="md:text-base lg:text-lg xl:text-xl font-medium">Digital Cloud-Services</span>
+        </a>
+      </div>
+      <div class="grid grid-cols-1 xl:min-w-[200px] md:pl-3 lg:pl-3 xl:pl-6">
+        
+      </div>
+    </div>
+  </section>
+
+  <section id="products-section" 
+    class="backdrop hidden hidden fixed top-22 left-0 w-full bg-black/50 
+           border-t border-white/20 shadow-lg z-40">
+         
+    <div class="max-w-full flex items-start mx-auto md:gap-4 lg:gap-6 xl:gap-6 px-0 py-10">
+       <!-- Left: title -->       
+      <div class="grid grid-cols-1 xl:min-w-[100px] md:pl-[28px] lg:pl-[50px] xl:pl-[75px]">
+          <h2 class="md:text-xl lg:text-2xl xl:text-3xl font-bold leading-tight text-white">OUR<br>PRODUCTS</h2>
+      </div>
+      <div class="grid grid-cols-1 xl:min-w-[200px] md:pl-3 lg:pl-3 xl:pl-6">
+
+      </div>
+
+       <!-- Right: products grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 md:gap-x-4 lg:gap-x-4 xl:gap-x-8 md:gap-y-5 lg:gap-y-10 xl:gap-y-10 flex-1 text-white">
+        
+        <a href="./Compressor_Controller.html" class="inline-flex items-center gap-3 hover:text-[#43C400]">
+          <span class="inline-flex items-center justify-center md:w-7 md:h-7 lg:w-8 lg:h-8 xl:w-9 xl:h-9 rounded-md bg-white shadow"><img src="./images/header/turn_right.webp" class="md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5"></span>
+          <span class="md:text-base lg:text-lg xl:text-xl font-medium">Compressor Controller</span>
+        </a>
+        <a href="./Diagnostic_Scan_Tool.html" class="inline-flex items-center gap-3 hover:text-[#43C400]">
+          <span class="inline-flex items-center justify-center md:w-7 md:h-7 lg:w-8 lg:h-8 xl:w-9 xl:h-9 rounded-md bg-white text-green-700 shadow"><img src="./images/header/turn_right.webp" class="md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5"></span>
+          <span class="md:text-base lg:text-lg xl:text-xl font-medium">H200 – Diagnostic Scan Tool</span>
+        </a>
+        <a href="./ITV_EGR_Performance_Tester.html" class="inline-flex items-center gap-3 hover:text-[#43C400]">
+          <span class="inline-flex items-center justify-center md:w-7 md:h-7 lg:w-8 lg:h-8 xl:w-9 xl:h-9 rounded-md bg-white text-green-700 shadow"><img src="./images/header/turn_right.webp" class="md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5"></span>
+          <span class="md:text-base lg:text-lg xl:text-xl font-medium">ITV/EGR Performance Tester</span>
+        </a>
+        <a href="./Vehicle_Speed_Simulator.html" class="inline-flex items-center gap-3 hover:text-[#43C400]">
+          <span class="inline-flex items-center justify-center md:w-7 md:h-7 lg:w-8 lg:h-8 xl:w-9 xl:h-9 rounded-md bg-white text-green-700 shadow"><img src="./images/header/turn_right.webp" class="md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5"></span>
+          <span class="md:text-base lg:text-lg xl:text-xl font-medium">Vehicle Speed Simulator</span>
+        </a>
+        <a href="./Wireless_Temperature_Logger.html" class="inline-flex items-center gap-3 hover:text-[#43C400]">
+          <span class="inline-flex items-center justify-center md:w-7 md:h-7 lg:w-8 lg:h-8 xl:w-9 xl:h-9 rounded-md bg-white text-green-700 shadow"><img src="./images/header/turn_right.webp" class="md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5"></span>
+          <span class="md:text-base lg:text-lg xl:text-xl font-medium">Wireless Temperature Logger</span>
+        </a>
+        <a href="./My_Park_Parking_Solution.html" class="inline-flex items-center gap-3 hover:text-[#43C400]">
+          <span class="inline-flex items-center justify-center md:w-7 md:h-7 lg:w-8 lg:h-8 xl:w-9 xl:h-9 rounded-md bg-white text-green-700 shadow"><img src="./images/header/turn_right.webp" class="md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5"></span>
+          <span class="md:text-base lg:text-lg xl:text-xl font-medium">My Park – Parking Solution</span>
+        </a>
+         <a href="./Lightning_Counter_Tester.html" class="inline-flex items-center gap-3 hover:text-[#43C400]">
+          <span class="inline-flex items-center justify-center md:w-7 md:h-7 lg:w-8 lg:h-8 xl:w-9 xl:h-9 rounded-md bg-white text-green-700 shadow"><img src="./images/header/turn_right.webp" class="md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5"></span>
+          <span class="md:text-base lg:text-lg xl:text-xl font-medium">Lightning Counter & Tester</span>
+        </a>
+        <a href="./Internet_Radio.html" class="inline-flex items-center gap-3 hover:text-[#43C400]">
+          <span class="inline-flex items-center justify-center md:w-7 md:h-7 lg:w-8 lg:h-8 xl:w-9 xl:h-9 rounded-md bg-white text-green-700 shadow"><img src="./images/header/turn_right.webp" class="md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5"></span>
+          <span class="md:text-base lg:text-lg xl:text-xl font-medium">Internet Radio</span>
+        </a>
+        <a href="./T4_Test_Rig.html" class="inline-flex items-center gap-3 hover:text-[#43C400]">
+          <span class="inline-flex items-center justify-center md:w-7 md:h-7 lg:w-8 lg:h-8 xl:w-9 xl:h-9 rounded-md bg-white text-green-700 shadow"><img src="./images/header/turn_right.webp" class="md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5"></span>
+          <span class="md:text-base lg:text-lg xl:text-xl font-medium">T4 – Test Rig</span>
+        </a>
+        <a href="./H200_Wireless_OBD_Dongle.html" class="inline-flex items-center gap-3 hover:text-[#43C400]">
+          <span class="inline-flex items-center justify-center md:w-7 md:h-7 lg:w-8 lg:h-8 xl:w-9 xl:h-9 rounded-md bg-white text-green-700 shadow"><img src="./images/header/turn_right.webp" class="md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5"></span>
+          <span class="md:text-base lg:text-lg xl:text-xl font-medium">H200 – Wireless OBD Dongle</span>
+        </a>
+         <a href="./HC_Dozer_Test_Rig.html" class="inline-flex items-center gap-3 hover:text-[#43C400]">
+          <span class="inline-flex items-center justify-center md:w-7 md:h-7 lg:w-8 lg:h-8 xl:w-9 xl:h-9 rounded-md bg-white text-green-700 shadow"><img src="./images/header/turn_right.webp" class="md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5"></span>
+          <span class="md:text-base lg:text-lg xl:text-xl font-medium">HC Dozer Test Rig</span>
+        </a>
+         <a href="./Cable_Test_Rig.html" class="inline-flex items-center gap-3 hover:text-[#43C400]">
+          <span class="inline-flex items-center justify-center md:w-7 md:h-7 lg:w-8 lg:h-8 xl:w-9 xl:h-9 rounded-md bg-white text-green-700 shadow"><img src="./images/header/turn_right.webp" class="md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5"></span>
+          <span class="md:text-base lg:text-lg xl:text-xl font-medium">Cable Test Rig</span>
+        </a>
+         <a href="./XCP_CAN.html" class="inline-flex items-center gap-3 hover:text-[#43C400]">
+          <span class="inline-flex items-center justify-center md:w-7 md:h-7 lg:w-8 lg:h-8 xl:w-9 xl:h-9 rounded-md bg-white text-green-700 shadow"><img src="./images/header/turn_right.webp" class="md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5"></span>
+          <span class="md:text-base lg:text-lg xl:text-xl font-medium">XCP CAN</span>
+        </a>
+      </div>
+      <div class="grid grid-cols-1 xl:min-w-[200px] md:pl-3 lg:pl-3 xl:pl-6">
+        
+      </div>
+    </div>
+  </section>
+
+<style>
+  .backdrop {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+</style>
+
+
+<script>
+   
+    function toggleServices() {
+      const section = document.getElementById("services-section");
+      section.classList.toggle("hidden");
+    }
+  </script>  
+
+  <script>
+   
+    function toggleProducts() {
+      const section = document.getElementById("products-section");
+      section.classList.toggle("hidden");
+    }
+  </script>  
+
+<script>
+  // Mobile menu toggle
+  const menuBtn = document.getElementById("menu-btn");
+  const mobileMenu = document.getElementById("mobile-menu");
+  const desktopServices = document.getElementById("services-section");
+  const desktopProducts = document.getElementById("products-section");
+
+  // Always hide desktop dropdowns when mobile menu is opened
+  menuBtn.addEventListener("click", () => {
+    mobileMenu.classList.toggle("hidden");
+    desktopServices.classList.add("hidden");
+    desktopProducts.classList.add("hidden");
+  });
+
+  // Dropdown toggle (for Services, Products etc.)
+  const dropdownBtns = document.querySelectorAll("[data-dropdown]");
+
+  dropdownBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const dropdownId = btn.getAttribute("data-dropdown");
+      const dropdown = document.getElementById(dropdownId);
+      dropdown.classList.toggle("hidden");
+
+      // If mobile Services or Products dropdown is open → hide desktop ones
+      if ((dropdownId === "mobile-services" || dropdownId === "mobile-products") 
+          && !dropdown.classList.contains("hidden")) {
+        desktopServices.classList.add("hidden");
+        desktopProducts.classList.add("hidden");
+      }
+    });
+  });
+
+  // Extra safety: hide desktop dropdowns on window resize to mobile
+  window.addEventListener("resize", () => {
+    if (window.innerWidth < 768) {
+      desktopServices.classList.add("hidden");
+      desktopProducts.classList.add("hidden");
+    }
+  });
+</script>
+
+     <!-- Hero Section Starts-->
+    <section class="relative h-[55vh] md:h-[70vh] lg:h-[90vh] w-full overflow-hidden">
+      <!-- Fullscreen Background Video -->
+      <video
+        autoplay
+        muted
+        loop
+        playsinline
+        class="absolute inset-0 w-full h-full object-cover z-0"
+      >
+        <source src="./images/home/background_video.mp4" type="video/mp4" />
+      </video>
+
+      
+      <!-- Background animated canvas -->
+      <canvas id="bgCanvas"></canvas>
+
+      <!-- Black Overlay -->
+      <div
+        class="absolute inset-0 bg-gradient-to-b from-black/40 to-black/50 z-10 flex items-center mt-20 lg:mt-0"
+      >
+        <!-- Limit max-width of TEXT only -->
+        <div class="text-white px-6 md:px-10 lg:px-15 xl:px-20 w-full mx-auto text-start">
+          <button
+            class="bg-white/10 hover:bg-white/20 px-5 py-2 rounded-full text-sm md:text-base lg:text-lg xl:text-xl mb-6 shadow-lg"
+          >
+          Let’s Grow Together
+          </button>
+          
+          <h1 class="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-1 md:mb-2">
+            Enhancing Lives with :
+            
+          </h1>
+          <h1 class="mt-4 md:mt-8 text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold">
+            <span id="typed"></span>
+          </h1>
+           <p class="mt-6 md:mt-12 w-50 md:w-70 lg:w-100 text-lg md:text-xl text-gray-300 text-justify leading-relaxed">
+            We provide cutting-edge hardware, intuitive software, dynamic websites,
+            and intelligent IoT and embedded solutions.
+          </p>
+         
+        </div>
+      </div>
+    </section>
+    <!-- Hero Section End-->
+
+    <!------------- Discover section starts ------------->
+
+    <!--- Discover section - Desktop --->
+    <div class="bg-black">
+    <section class="relative text-white items-start justify-start py-4 md:py-8 lg:py-16 overflow-hidden hidden md:block">
+           <h2 class="w-full text-xl md:text-2xl lg:text-3xl font-semibold text-gray-300 px-4 md:px-10 lg:px-15 xl:px-20">      
+                Specializes in cutting-edge<br/>
+                IoT applications embedded<br/>
+                automotive services<br/>
+                web and mobile app development
+            </h2>
+        
+        <div class="max-w-6xl md:pl-15 xl:pl-0 xl:mx-auto flex items-center justify-center mt-8 pt-12">
+  
+            <!-- Image Section -->
+            <div id="chipImage_d" class="transition-all translate-x-55 duration-700 ease-in-out transform mx-auto">
+                <img src="./images/home/chip.webp" alt="Microchip" class="w-220 h-auto">
+            </div>
+
+             <!-- Hidden Text -->
+            <div id="chipText_d" class="opacity-0 translate-x-20 transition-all duration-700 ease-in-out max-w-lg md:px-10 lg:px-10 xl:px-0">
+                <h2  id="discoverHeading_d"  class="md:text-2xl lg:text-3xl text-white font-semibold mb-6">//Discover Our Solutions</h2>
+                <p class="text-gray-400 text-justify md:text-lg lg:text-xl leading-relaxed">
+                    IVA Technos specializes in developing embedded and IoT products for OEMs and industrial applications,
+                    creating automotive applications for infotainment, digital clusters, and ADAS with HMI expertise,
+                    and building Android, iOS, and web apps using technologies like React, Angular, and .NET.
+                </p>
+            </div>
+       
+         
+        </div>
+        
+    </section>
+<style>
+    @keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-down {
+  animation: fadeInDown 0.8s ease-out forwards;
+}
+
+</style>
+
+        <!--- Discover section - Mobile View --->
+
+<section class="relative py-4 md:py-8 lg:py-16 text-white overflow-hidden block md:hidden">
+  <!-- Intro Heading -->
+  <h2 data-aos="fade-up" class="w-full text-xl md:text-3xl font-semibold text-gray-300 px-6 md:px-20 lg:px-10 xl:px-0 text-center">
+    Specializes in cutting-edge IoT, Embedded, Automotive & Web Development
+  </h2>
+
+  <!-- Content Wrapper -->
+  <div class="max-w-6xl mx-auto flex flex-col items-center justify-center gap-8 pt-12">
+    
+    <!-- Image Section -->
+    <div data-aos="zoom-in" data-aos-delay="200">
+      <img src="./images/home/chip.webp" alt="Microchip" class="w-64 h-auto md:w-80 lg:w-[400px]">
+    </div>
+
+    <!-- Text Section -->
+    <div class="max-w-lg text-center md:text-left px-4">
+      <h2 data-aos="fade-right" data-aos-delay="400" class="text-xl font-semibold mb-6">// Discover Our Solutions</h2>
+      <p data-aos="fade-up" data-aos-delay="500" class="text-gray-400 text-lg leading-relaxed text-justify">
+        IVA Technos specializes in developing embedded and IoT products, creating automotive applications,
+        and building Android, iOS, and web apps with React, Angular, and .NET.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<style>
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(60px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+</style>
+
+ <section id="iot-section" class="justify-start py-4 md:py-8 lg:py-16 overflow-hidden flex">
+  <div class="flex flex-col md:flex-row items-center max-w-8xl mx-auto">
+    
+    <!-- Image -->
+    <img id="iotImage"
+      src="./images/home/iot.webp"
+      alt="IOT Device"
+      class="w-screen h-50 md:w-100 md:h-100 lg:w-220 lg:h-100 opacity-0 translate-x-[-100px] transition-all duration-700 ease-out"
+    />
+    
+    <!-- Text -->
+    <div id="iotText"
+      class="px-4 md:px-0 text-white md:ml-10 md:mr-10 xl:ml-20 xl:mr-20 mt-6 md:mt-0 max-w-lg opacity-0 translate-x-[100px] transition-all duration-700 ease-out">
+      <h2 class="text-xl md:text-2xl lg:text-3xl font-semibold mb-4">Embedded and IOT Applications</h2>
+      <p class="text-gray-400 text-justify text-lg md:text-lg lg:text-xl leading-relaxed">
+        It combine to create smart systems by integrating physical objects with sensors and software, 
+        enabling real-time data exchange and automation. This synergy enhances efficiency and 
+        decision-making across various industries.
+      </p>
+    </div>
+  </div>
+</section>
+
+            <!------- gps section starts ---------->
+
+ <section id="gps-section" class="justify-start py-4 md:py-8 lg:py-16 overflow-hidden flex">
+  <div class="flex flex-col md:flex-row-reverse items-center max-w-8xl mx-auto">
+    
+    <!-- Image -->
+    <img id="gpsImage"
+      src="./images/home/gps_device.webp"
+      alt="IOT Device"
+      class="w-screen h-50 md:w-100 md:h-100 lg:w-220 lg:h-100 opacity-0 translate-x-[-100px] transition-all duration-700 ease-out"
+    />
+    
+    <!-- Text -->
+    <div id="gpsText"
+      class="px-4 md:px-0 text-white md:ml-10 md:mr-10 xl:ml-20 xl:mr-20 mt-6 md:mt-0 max-w-lg opacity-0 translate-x-[100px] transition-all duration-700 ease-out">
+      <h2 class="text-xl md:text-2xl lg:text-3xl font-semibold mb-4">Automotive Services</h2>
+      <p class="text-gray-400 text-justify text-lg md:text-lg lg:text-xl leading-relaxed">
+        It encompass a range of solutions aimed at maintaining and improving
+        vehicle performance, safety, and longevity. These services include 
+        routine maintenance, repairs, diagnostics, and enhancements, ensuring
+        vehicles operate efficiently and reliably.
+      </p>
+      
+    </div>
+  </div>
+</section>
+
+            <!------- Application Section Starts --------->
+
+ <section id="application-section" class="justify-start py-4 md:py-8 lg:py-16 overflow-hidden flex bg-black">
+  <div class="flex flex-col md:flex-row items-center max-w-8xl mx-auto">
+    
+    <!-- Image -->
+    <img id="applicationImage"
+      src="./images/home/web_mob_applns.webp"
+      alt="applicationImage"
+      class="w-screen h-50 md:w-100 md:h-100 lg:w-220 lg:h-100 opacity-0 translate-x-[-100px] transition-all duration-700 ease-out"
+    />
+    
+    <!-- Text -->
+    <div id="applicationText"
+      class="px-4 md:px-0 text-white md:ml-10 md:mr-10 xl:ml-20 xl:mr-20 mt-6 md:mt-0 max-w-md opacity-0 translate-x-[100px] transition-all duration-700 ease-out">
+      <h2 class="text-xl md:text-2xl lg:text-3xl font-semibold mb-4">Web and Mobile Applications</h2>
+      <p class="text-gray-400 text-justify text-lg md:text-lg lg:text-xl leading-relaxed">
+        Web and Mobile App Developement focuses on creating responsive, user-friendly 
+        applications for web and mobile platforms, enhancing user experience and
+        accessibility.
+      </p>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<div class="border-t border-[#6B6B6B]"></div>
+
+<!-- FOOTER -->
+<footer class="bg-black text-[#6B6B6B] pt-4 pb-8 md:pt-10 md:pb-6 lg:pt-10 lg:pb-6">
+  <div class="mx-auto px-7.5 md:px-6 lg:px-11.5 xl:px-18 justify-between grid grid-cols-2 sm:grid-cols-2 md:grid-cols-6 lg:grid-cols-6 md:gap-0 lg:gap-8">
+    
+    
+    <div class="mx-[-5px] md:mx-auto pb-4 md:pb-0">
+      <h2 class="flex items-center gap-2 text-xl md:text-2xl lg:text-3xl font-bold">
+        <img src="./images/header/ivalogo.webp" alt="iVA Technos Logo" class="h-14 w-14 md:h-15 md:w-15 lg:h-16 lg:w-16">
+        <span class="text-[#D1A57B]">TECHNOS</span>
+      </h2>
+    </div>
+    <div></div>
+    <div class="md:ml-[-30px]">
+      <h3 class="text-base md:text-lg lg:text-xl text-white font-semibold mb-4">Company</h3>
+      <ul class="space-y-2 md:space-y-3">
+        <li><a href="./About_Us.html" class="text-xs md:text-sm lg:text-base hover:text-[#858585]">About US</a></li>
+        <li><a href="./Services.html" onclick="toggleServices()" class="text-xs md:text-sm lg:text-base hover:text-[#858585]">Services</a></li>
+        <li><a href="./Products.html" class="text-xs md:text-sm lg:text-base hover:text-[#858585]">Products</a></li>
+      </ul>
+    </div>
+
+   
+    <div class="md:ml-[-30px]">
+      <h3 class="text-base md:text-lg lg:text-xl text-white font-semibold mb-4">Social</h3>
+      <ul class="space-y-2 md:space-y-3">
+        <li><a href="#" class="text-xs md:text-sm lg:text-base hover:text-[#858585]">Instagram</a></li>
+        <li><a href="#" class="text-xs md:text-sm lg:text-base hover:text-[#858585]">LinkedIn</a></li>
+        <li><a href="#" class="text-xs md:text-sm lg:text-base hover:text-[#858585]">Twitter</a></li>
+      </ul>
+    </div>
+
+  
+    <div class="pt-6 md:pt-0 md:ml-[-40px]">
+      <h3 class="text-base md:text-lg lg:text-xl text-white font-semibold mb-4">Legal</h3>
+      <ul class="space-y-2 md:space-y-3">
+        <li><a href="#" class="text-xs md:text-sm lg:text-base hover:text-[#858585]">Privacy Policy</a></li>
+        <li><a href="#" class="text-xs md:text-sm lg:text-base hover:text-[#858585]">Terms & Conditions</a></li>
+      </ul>
+    </div>
+
+    
+    <div class="pt-6 md:pt-0 md:ml-[-10px]">
+      <h3 class="text-base md:text-lg lg:text-xl text-white font-semibold mb-4">Contact</h3>
+      <ul class="space-y-2 md:space-y-3">
+        <li><a href="mailto:info@ivatechnos.com" class="text-xs md:text-sm lg:text-base hover:text-[#858585]">info@ivatechnos.com</a></li>
+        <li><a href="tel:+911234567890" class="text-xs md:text-sm lg:text-base hover:text-[#858585]">+91 12345 67890</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  
+  <div class="mx-auto px-7 md:px-7 lg:px-11 xl:px-19 mt-10">
+    <p class="text-xs md:text-sm text-gray-500">@ 2025 by IVA TECHNOS</p>
+  </div>
+</footer>
+
+
+
+
+
+     <!-- AOS Script -->
+  <script src="./js/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+
+
+ <script>
+    // 🔹 Typing effect
+    var typed = new Typed("#typed", {
+      strings: [
+        "<span class='text-[#298000]'>Innovative Design</span>",
+        "<span class='text-[#D1A57B]'>Technology</span>"
+      ],
+      typeSpeed: 100,
+      backSpeed: 60,
+      loop: true
+    });
+
+    // Background Dots Animation
+    const canvas = document.getElementById("bgCanvas");
+    const ctx = canvas.getContext("2d");
+    let width, height;
+    let particles = [];
+
+    function resize() {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    }
+    window.addEventListener("resize", resize);
+    resize();
+
+    class Particle {
+      constructor() {
+        this.x = Math.random() * width;
+        this.y = Math.random() * height;
+        this.vx = (Math.random() - 0.5) * 1.2;
+        this.vy = (Math.random() - 0.5) * 1.2;
+        this.radius = 2;
+      }
+      move() {
+        this.x += this.vx;
+        this.y += this.vy;
+        if (this.x < 0 || this.x > width) this.vx *= -1;
+        if (this.y < 0 || this.y > height) this.vy *= -1;
+      }
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.fillStyle = "#0ff";
+        ctx.fill();
+      }
+    }
+
+    function connectParticles() {
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          let dx = particles[i].x - particles[j].x;
+          let dy = particles[i].y - particles[j].y;
+          let distance = Math.sqrt(dx * dx + dy * dy);
+          if (distance < 150) {
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.strokeStyle = "rgba(0,255,255,0.2)";
+            ctx.lineWidth = 1;
+            ctx.stroke();
+          }
+        }
+      }
+    }
+
+    function initParticles(num) {
+      particles = [];
+      for (let i = 0; i < num; i++) {
+        particles.push(new Particle());
+      }
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, width, height);
+      particles.forEach(p => {
+        p.move();
+        p.draw();
+      });
+      connectParticles();
+      requestAnimationFrame(animate);
+    }
+
+    initParticles(80); // Number of dots
+    animate();
+  </script>
+
+
+  <!-- Chip section - Desktop -->
+    
+<script>
+  const chipImage_d = document.getElementById('chipImage_d');
+  const chipText_d = document.getElementById('chipText_d');
+  const discoverHeading_d = document.getElementById('discoverHeading_d');
+
+  window.addEventListener('scroll', () => {
+     let triggerOffset = 150; // start animation 150px before entering
+    let sectionTop = chipImage_d.getBoundingClientRect().top;
+
+    if (sectionTop < window.innerHeight - triggerOffset) {
+      // Move image to left
+      chipImage_d.classList.add('md:translate-x-[0px]','lg:translate-x-[-30px]','xl:translate-x-[-100px]','md:scale-130','lg:scale-100');
+      chipImage_d.classList.remove('mx-auto','translate-x-0','md:scale-150','lg:scale-120');
+
+      // Show text with slide from right
+      chipText_d.classList.remove('opacity-0', 'translate-x-20');
+      chipText_d.classList.add('opacity-100', 'translate-x-0');
+
+       // Trigger heading animation
+        discoverHeading_d.classList.add('fade-in-down');
+
+    } else {
+      // Reset to initial state
+      chipImage_d.classList.remove('md:translate-x-[0px]','lg:translate-x-[-30px]','xl:translate-x-[-100px]','md:scale-130','scale-100');
+      chipImage_d.classList.add('mx-auto','translate-x-0','md:scale-150','lg:scale-120');
+
+      chipText_d.classList.add('opacity-0', 'translate-x-20');
+      chipText_d.classList.remove('opacity-100', 'translate-x-0');
+    
+       discoverHeading_d.classList.remove('fade-in-down');
+    }
+  });
+</script>
+
+
+    <!-- Chip section - Mobile Version -->
+
+<script>
+const chipImage = document.getElementById('chipImage');
+const chipText = document.getElementById('chipText');
+const discoverHeading = document.getElementById('discoverHeading');
+
+window.addEventListener('scroll', () => {
+  let triggerOffset = 150;
+  let sectionTop = chipImage.getBoundingClientRect().top;
+
+  if (sectionTop < window.innerHeight - triggerOffset) {
+    // Zoom out image & center
+    chipImage.classList.remove('scale-120', 'opacity-90');
+    chipImage.classList.add('scale-100', 'opacity-100');
+
+    // Fade in and slide text from bottom
+    chipText.classList.remove('opacity-0', 'translate-y-10');
+    chipText.classList.add('opacity-100', 'translate-y-0');
+
+    // Heading fade-in-up effect
+    discoverHeading.classList.add('fade-in-up');
+
+  } else {
+    // Reset to initial state
+    chipImage.classList.add('scale-120', 'opacity-90');
+    chipImage.classList.remove('scale-100', 'opacity-100');
+
+    chipText.classList.add('opacity-0', 'translate-y-10');
+    chipText.classList.remove('opacity-100', 'translate-y-0');
+
+    discoverHeading.classList.remove('fade-in-up');
+  }
+});
+</script>
+
+   <!------iot section------>
+<script>
+  const iotImage = document.getElementById('iotImage');
+  const iotText = document.getElementById('iotText');
+
+  window.addEventListener('scroll', () => {
+    const sectionTop = iotImage.getBoundingClientRect().top;
+    const triggerPoint = window.innerHeight - 150; // Start before full view
+
+    if (sectionTop < triggerPoint) {
+      // Animate in
+      iotImage.classList.remove('opacity-0', 'translate-x-[-100px]');
+      iotImage.classList.add('opacity-100', 'translate-x-0');
+
+      iotText.classList.remove('opacity-0', 'translate-x-[100px]');
+      iotText.classList.add('opacity-100', 'translate-x-0');
+    } else {
+      // Reset (optional if you want reverse on scroll up)
+      iotImage.classList.add('opacity-0', 'translate-x-[-100px]');
+      iotImage.classList.remove('opacity-100', 'translate-x-0');
+
+      iotText.classList.add('opacity-0', 'translate-x-[100px]');
+      iotText.classList.remove('opacity-100', 'translate-x-0');
+    }
+  });
+</script>
+
+  <!------gps section------>
+
+<script>
+  const gpsImage = document.getElementById('gpsImage');
+  const gpsText = document.getElementById('gpsText');
+
+  window.addEventListener('scroll', () => {
+    const sectionTop = gpsImage.getBoundingClientRect().top;
+    const triggerPoint = window.innerHeight - 150; // Start before full view
+
+    if (sectionTop < triggerPoint) {
+      // Animate in
+      gpsImage.classList.remove('opacity-0', 'translate-x-[-100px]');
+      gpsImage.classList.add('opacity-100', 'translate-x-0');
+
+      gpsText.classList.remove('opacity-0', 'translate-x-[100px]');
+      gpsText.classList.add('opacity-100', 'translate-x-0');
+    } else {
+      // Reset (optional if you want reverse on scroll up)
+      gpsImage.classList.add('opacity-0', 'translate-x-[-100px]');
+      gpsImage.classList.remove('opacity-100', 'translate-x-0');
+
+      gpsText.classList.add('opacity-0', 'translate-x-[100px]');
+      gpsText.classList.remove('opacity-100', 'translate-x-0');
+    }
+  });
+</script>
+
+
+ <!------application section------>
+<script>
+  const applicationImage = document.getElementById('applicationImage');
+  const applicationText = document.getElementById('applicationText');
+
+  window.addEventListener('scroll', () => {
+    const sectionTop = applicationImage.getBoundingClientRect().top;
+    const triggerPoint = window.innerHeight - 150; // Start before full view
+
+    if (sectionTop < triggerPoint) {
+      // Animate in
+      applicationImage.classList.remove('opacity-0', 'translate-x-[-100px]');
+      applicationImage.classList.add('opacity-100', 'translate-x-0');
+
+      applicationText.classList.remove('opacity-0', 'translate-x-[100px]');
+      applicationText.classList.add('opacity-100', 'translate-x-0');
+    } else {
+      // Reset (optional if you want reverse on scroll up)
+      applicationImage.classList.add('opacity-0', 'translate-x-[-100px]');
+      applicationImage.classList.remove('opacity-100', 'translate-x-0');
+
+      applicationText.classList.add('opacity-0', 'translate-x-[100px]');
+      applicationText.classList.remove('opacity-100', 'translate-x-0');
+    }
+  });
+</script>
+
+
+</body>
+</html>
